@@ -1,0 +1,16 @@
+xaringanthemer
+htmltools
+ggplot2
+plotly
+tidyverse
+tibble
+tidyr
+readr
+purrr
+dplyr
+stringr
+forcats
+palmerpenguins
+lubridate
+patchwork
+ggpubr

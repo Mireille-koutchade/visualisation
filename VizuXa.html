@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Visualisation des données</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="JL Marchand" />
+    <meta name="date" content="2023-11-06" />
+    <script src="VizuXa_files/header-attrs-2.23/header-attrs.js"></script>
+    <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
+    <link rel="stylesheet" href="my_own.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, middle, inverse, title-slide
+
+.title[
+# Visualisation des données
+]
+.author[
+### JL Marchand
+]
+.date[
+### 2023-11-06
+]
+
+---
+
+
+
+
+
+
+
+
+
+class: inverse, middle, center
+# Les enjeux de la visualisation
+
+---
+
+## Pour en remettre une couche
+
+- même si nous allons développer ici la partie technique pour s'approprier les outils, la **conception** passe nécessairement par une réflexion au préalable
+  + le choix de l'information présentée, résumée sur le(s) graphique(s)
+    * type de graphique, données à utiliser, résultats d'analyse, etc.
+  + l'ensemble des éléments facilitant la lecture de cette information
+    * choix des axes, titres et légendes, mise en relief, etc.
+  + la ligne éditoriale suivant le public visé
+    * tous les éléments précédents choisis suivant la qualité du lectorat et ses connaissances statistiques (enjeu important en entreprise)
+
+---
+
+## Au menu aujourd'hui et demain
+
+- Objectif : revenir sur les différentes étapes de réalisation à travers l'utilisation de paquets spécifiques
+  + manipulation et gestion des tableaux  avec `tidyr`, `purrr`, `dplyr` et `forcats`
+  + représentations statiques  avec `ggplot2`
+  + représentations interactives avec `plotly`
+  + la carte pour les desserts
+
+
+- liste des paquets utilisés  
+  + `tidyverse`, `palmerpenguins`, `lubridate`, `patchwork`, `ggpubr`, `ggrepel`, `plotly`
+
+---
+
+class: inverse, middle, center
+# Manipulation des données avec tidyverse
+
+---
+
+## Description approximative
+
+Le paquet **tidyverse** est un regroupement de plusieurs paquets (cf https://www.tidyverse.org/ pour des descriptions et surtout les **cheatsheets**). Grossièrement :
+
+- **tibble** pour la structure des données (nouveau format différent d'un data.frame ou .table)
+- **dplyr** pour la manipulation et l'analyse proprement dite
+- **forcats** pour des fonctionnalités propres aux facteurs
+- **tidyr** pour la préparation des données (pivots et autres)
+- **lubridate** pour la gestion des dates
+- **stringr** pour la gestion des chaînes de caractères
+- **readr** pour l'importation (format tibble en sortie)
+- **ggplot2** pour la visualisation
+- **purrr** pour la programmation
+- ...
+
+---
+
+## Chargement des paquets
+
+- le chargement du package `tidyverse` permet le chargement de tous les packages listés précédemment
+
+```r
+library(tidyverse)
+```
+
+- les fonctions de R Base, `stats::filter()` et `stats::lag()` servent notamment pour les études de séries temporelles, elles restent disponibles tant qu'on précise le paquet dans l'appel de la fonction, sinon, le choix par défaut correspondra désormais aux fonctions du `dplyr` dont l'action n'a rien à voir avec ses homonymes 
+
+---
+
+## Début de discussion
+
+- boîte à outils standard
+- lisibilité du code (/base)
+- prise en main plus naturelle ? (format par défaut dans RStudio)
+- comme toujours : coût d'entrée
+- plus orienté utilisateur que performance (/data.table)
+
+Présentation de tidyverse essentiellement basée sur une lecture du tutoriel suivant
+
+https://juba.github.io/tidyverse/
+
+---
+
+## Exemples à travers un jeu de données
+- les données portent sur l'étude de manchots en Antarctique
+
+```r
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+penguins
+```
+
+```
+# A tibble: 344 × 8
+   species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+   &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+ 1 Adelie  Torgersen           39.1          18.7               181        3750
+ 2 Adelie  Torgersen           39.5          17.4               186        3800
+ 3 Adelie  Torgersen           40.3          18                 195        3250
+ 4 Adelie  Torgersen           NA            NA                  NA          NA
+ 5 Adelie  Torgersen           36.7          19.3               193        3450
+ 6 Adelie  Torgersen           39.3          20.6               190        3650
+ 7 Adelie  Torgersen           38.9          17.8               181        3625
+ 8 Adelie  Torgersen           39.2          19.6               195        4675
+ 9 Adelie  Torgersen           34.1          18.1               193        3475
+10 Adelie  Torgersen           42            20.2               190        4250
+# ℹ 334 more rows
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;
+```
+
+---
+
+## Premières manipulations
+- affichage de la structure
+
+```r
+glimpse(penguins)
+```
+
+```
+Rows: 344
+Columns: 8
+$ species           &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adel…
+$ island            &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgerse…
+$ bill_length_mm    &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, …
+$ bill_depth_mm     &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, …
+$ flipper_length_mm &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186…
+$ body_mass_g       &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, …
+$ sex               &lt;fct&gt; male, female, female, NA, female, male, female, male…
+$ year              &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007…
+```
+
+
+---
+
+## Les fonctions dplyr : rename
+- changement des noms de variable assez simple
+
+```r
+penguins &lt;- rename(
+  penguins,
+  bill_l = bill_length_mm,
+  bill_d = bill_depth_mm,
+  flip_l = flipper_length_mm,
+  mass = body_mass_g
+)
+glimpse(penguins)
+```
+
+```
+Rows: 344
+Columns: 8
+$ species &lt;fct&gt; Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie, Adelie…
+$ island  &lt;fct&gt; Torgersen, Torgersen, Torgersen, Torgersen, Torgersen, Torgers…
+$ bill_l  &lt;dbl&gt; 39.1, 39.5, 40.3, NA, 36.7, 39.3, 38.9, 39.2, 34.1, 42.0, 37.8…
+$ bill_d  &lt;dbl&gt; 18.7, 17.4, 18.0, NA, 19.3, 20.6, 17.8, 19.6, 18.1, 20.2, 17.1…
+$ flip_l  &lt;int&gt; 181, 186, 195, NA, 193, 190, 181, 195, 193, 190, 186, 180, 182…
+$ mass    &lt;int&gt; 3750, 3800, 3250, NA, 3450, 3650, 3625, 4675, 3475, 4250, 3300…
+$ sex     &lt;fct&gt; male, female, female, NA, female, male, female, male, NA, NA, …
+$ year    &lt;int&gt; 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 2007, 20…
+```
+
+
+---
+
+## Les fonctions dplyr : slice
+- sélection de lignes/individus par leur position dans le tableau
+
+```r
+slice(penguins, 123)
+```
+
+```
+# A tibble: 1 × 8
+  species island    bill_l bill_d flip_l  mass sex     year
+  &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+1 Adelie  Torgersen   40.2     17    176  3450 female  2009
+```
+
+```r
+slice(penguins, 3:6)
+```
+
+```
+# A tibble: 4 × 8
+  species island    bill_l bill_d flip_l  mass sex     year
+  &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+1 Adelie  Torgersen   40.3   18      195  3250 female  2007
+2 Adelie  Torgersen   NA     NA       NA    NA &lt;NA&gt;    2007
+3 Adelie  Torgersen   36.7   19.3    193  3450 female  2007
+4 Adelie  Torgersen   39.3   20.6    190  3650 male    2007
+```
+
+---
+
+## Les fonctions dplyr : filter
+.pull-left[
+- rappel sur les opérateur logiques
+  + `&amp;` pour "et", la réponse est `TRUE` si toutes les conditions sont satisfaites
+  + `|` pour "ou", la réponse est `TRUE` si au moins une des conditions sont satisfaites
+  + `!` pour "non", la réponse est `TRUE` si la condition est fausse
+
+```r
+(1 &gt; 2)&amp;(1 &lt; 2)
+(1 &gt; 2)|(1 &lt; 2)
+!(1 &gt; 2)
+```
+
+```
+[1] FALSE
+[1] TRUE
+[1] TRUE
+```
+]
+.pull-right[
+- sélection de lignes/individus par condition(s) sur les valeurs des variables
+
+```r
+filter(penguins, (species != "Adelie") &amp; (bill_l &gt;= 39))
+```
+
+```
+# A tibble: 191 × 8
+   species island bill_l bill_d flip_l  mass sex     year
+   &lt;fct&gt;   &lt;fct&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+ 1 Gentoo  Biscoe   46.1   13.2    211  4500 female  2007
+ 2 Gentoo  Biscoe   50     16.3    230  5700 male    2007
+ 3 Gentoo  Biscoe   48.7   14.1    210  4450 female  2007
+ 4 Gentoo  Biscoe   50     15.2    218  5700 male    2007
+ 5 Gentoo  Biscoe   47.6   14.5    215  5400 male    2007
+ 6 Gentoo  Biscoe   46.5   13.5    210  4550 female  2007
+ 7 Gentoo  Biscoe   45.4   14.6    211  4800 female  2007
+ 8 Gentoo  Biscoe   46.7   15.3    219  5200 male    2007
+ 9 Gentoo  Biscoe   43.3   13.4    209  4400 female  2007
+10 Gentoo  Biscoe   46.8   15.4    215  5150 male    2007
+# ℹ 181 more rows
+```
+]
+  
+---
+
+## Les fonctions dplyr : select
+
+.pull-left[
+- sélection de colonnes/variables par nom ou condition
+
+```r
+select(penguins, species, bill_l)
+```
+
+```
+# A tibble: 344 × 2
+   species bill_l
+   &lt;fct&gt;    &lt;dbl&gt;
+ 1 Adelie    39.1
+ 2 Adelie    39.5
+ 3 Adelie    40.3
+ 4 Adelie    NA  
+ 5 Adelie    36.7
+ 6 Adelie    39.3
+ 7 Adelie    38.9
+ 8 Adelie    39.2
+ 9 Adelie    34.1
+10 Adelie    42  
+# ℹ 334 more rows
+```
+]
+.pull-right[
+- pour sélectionner plusieurs variables 
+
+```r
+select(penguins, species:bill_l)
+select(penguins, starts_with("bill")) 
+select(penguins, ends_with("_l")) ## aussi contains() et matches()
+select_if(penguins, is.numeric) ## par booléen
+```
+]
+---
+
+## Les fonctions dplyr : arrange
+- tri des observations suivant les valeurs des variables
+
+```r
+arrange(penguins,bill_d, desc(bill_l))
+```
+
+```
+# A tibble: 344 × 8
+   species island bill_l bill_d flip_l  mass sex     year
+   &lt;fct&gt;   &lt;fct&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+ 1 Gentoo  Biscoe   42.9   13.1    215  5000 female  2007
+ 2 Gentoo  Biscoe   46.1   13.2    211  4500 female  2007
+ 3 Gentoo  Biscoe   44.9   13.3    213  5100 female  2008
+ 4 Gentoo  Biscoe   43.3   13.4    209  4400 female  2007
+ 5 Gentoo  Biscoe   46.5   13.5    210  4550 female  2007
+ 6 Gentoo  Biscoe   42     13.5    210  4150 female  2007
+ 7 Gentoo  Biscoe   44     13.6    208  4350 female  2008
+ 8 Gentoo  Biscoe   47.2   13.7    214  4925 female  2009
+ 9 Gentoo  Biscoe   45.5   13.7    214  4650 female  2007
+10 Gentoo  Biscoe   45.3   13.7    210  4300 female  2008
+# ℹ 334 more rows
+```
+
+---
+
+## Les fonctions dplyr : mutate
+- création d'une nouvelle variable qui remplace une existante ou qui vient s'ajouter au tableau
+
+```r
+mutate(penguins,
+       bill_length_cm = bill_l / 10,
+       Bill_length_cm = bill_l / 10)
+```
+
+```
+# A tibble: 344 × 10
+   species island    bill_l bill_d flip_l  mass sex     year bill_length_cm
+   &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;          &lt;dbl&gt;
+ 1 Adelie  Torgersen   39.1   18.7    181  3750 male    2007           3.91
+ 2 Adelie  Torgersen   39.5   17.4    186  3800 female  2007           3.95
+ 3 Adelie  Torgersen   40.3   18      195  3250 female  2007           4.03
+ 4 Adelie  Torgersen   NA     NA       NA    NA &lt;NA&gt;    2007          NA   
+ 5 Adelie  Torgersen   36.7   19.3    193  3450 female  2007           3.67
+ 6 Adelie  Torgersen   39.3   20.6    190  3650 male    2007           3.93
+ 7 Adelie  Torgersen   38.9   17.8    181  3625 female  2007           3.89
+ 8 Adelie  Torgersen   39.2   19.6    195  4675 male    2007           3.92
+ 9 Adelie  Torgersen   34.1   18.1    193  3475 &lt;NA&gt;    2007           3.41
+10 Adelie  Torgersen   42     20.2    190  4250 &lt;NA&gt;    2007           4.2 
+# ℹ 334 more rows
+# ℹ 1 more variable: Bill_length_cm &lt;dbl&gt;
+```
+
+- on fera donc encore une fois attention à l'orthographe des variables 
+---
+
+## Composition de fonctions avec l'opérateur "pipe"
+- composition de gauche à droite pour plus de lisibilité pour vous comme pour une personne qui devrait relire votre code !  
+.pull-left[
+
+
+```r
+slice(arrange(select_if (
+  filter (penguins,  island == "Biscoe"),
+  is.numeric
+), mass) , 1:3)
+```
+
+```
+# A tibble: 3 × 5
+  bill_l bill_d flip_l  mass  year
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1   36.5   16.6    181  2850  2008
+2   36.4   17.1    184  2850  2008
+3   34.5   18.1    187  2900  2008
+```
+]
+.pull-right[
+
+```r
+penguins %&gt;% filter( island == "Biscoe" ) %&gt;% 
+             select_if ( is.numeric ) %&gt;% 
+             arrange( mass ) %&gt;% 
+             slice(1:3)
+# succession des opérations limpide, pas de mélange avec les options des fonctions
+```
+
+```
+# A tibble: 3 × 5
+  bill_l bill_d flip_l  mass  year
+   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;int&gt;
+1   36.5   16.6    181  2850  2008
+2   36.4   17.1    184  2850  2008
+3   34.5   18.1    187  2900  2008
+```
+]
+---
+
+## Les fonctions dplyr : group_by
+- regroupement des indvidus 
+
+```r
+penguins %&gt;% group_by(island) %&gt;% 
+             slice(1:2)
+```
+
+```
+# A tibble: 6 × 8
+# Groups:   island [3]
+  species island    bill_l bill_d flip_l  mass sex     year
+  &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+1 Adelie  Biscoe      37.8   18.3    174  3400 female  2007
+2 Adelie  Biscoe      37.7   18.7    180  3600 male    2007
+3 Adelie  Dream       39.5   16.7    178  3250 female  2007
+4 Adelie  Dream       37.2   18.1    178  3900 male    2007
+5 Adelie  Torgersen   39.1   18.7    181  3750 male    2007
+6 Adelie  Torgersen   39.5   17.4    186  3800 female  2007
+```
+
+---
+
+## Les fonctions dplyr : summarise
+- descriptions des données par sous-groupes
+
+```r
+penguins %&gt;% group_by(island) %&gt;% 
+             summarise(long_moy = mean(bill_l, na.rm=T),
+                       long_max = max(bill_l, na.rm = T),
+                       nb = n())
+```
+
+```
+# A tibble: 3 × 4
+  island    long_moy long_max    nb
+  &lt;fct&gt;        &lt;dbl&gt;    &lt;dbl&gt; &lt;int&gt;
+1 Biscoe        45.3     59.6   168
+2 Dream         44.2     58     124
+3 Torgersen     39.0     46      52
+```
+
+---
+
+## Les fonctions dplyr : count
+- autre façon de compter
+
+```r
+penguins %&gt;% count(island, species) %&gt;%
+             arrange(desc(n))
+```
+
+```
+# A tibble: 5 × 3
+  island    species       n
+  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;
+1 Biscoe    Gentoo      124
+2 Dream     Chinstrap    68
+3 Dream     Adelie       56
+4 Torgersen Adelie       52
+5 Biscoe    Adelie       44
+```
+- cela revient quasiment au même que
+
+```r
+penguins %&gt;% group_by(island, species) %&gt;%
+             summarise(n=n()) %&gt;% 
+             arrange(desc(n))
+```
+
+---
+
+## Descriptions
+
+- grouper/dégrouper
+
+```r
+penguins %&gt;% group_by(island, species) %&gt;% 
+             summarise(nb = n()) %&gt;% 
+             ungroup() %&gt;% 
+             mutate(pourcentage = nb / sum(nb) * 100)
+```
+
+```
+# A tibble: 5 × 4
+  island    species      nb pourcentage
+  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;       &lt;dbl&gt;
+1 Biscoe    Adelie       44        12.8
+2 Biscoe    Gentoo      124        36.0
+3 Dream     Adelie       56        16.3
+4 Dream     Chinstrap    68        19.8
+5 Torgersen Adelie       52        15.1
+```
+---
+## Descriptions conditionnelles
+- version conditionnelle des fonctions , pour par exemple appliquer la même opération sur toutes les variables d'un même type 
+
+```r
+penguins %&gt;% group_by(island, species) %&gt;% 
+             summarise_if(is.numeric,mean, na.rm = T)
+```
+
+```
+# A tibble: 5 × 7
+# Groups:   island [3]
+  island    species   bill_l bill_d flip_l  mass  year
+  &lt;fct&gt;     &lt;fct&gt;      &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Biscoe    Adelie      39.0   18.4   189. 3710. 2008.
+2 Biscoe    Gentoo      47.5   15.0   217. 5076. 2008.
+3 Dream     Adelie      38.5   18.3   190. 3688. 2008 
+4 Dream     Chinstrap   48.8   18.4   196. 3733. 2008.
+5 Torgersen Adelie      39.0   18.4   191. 3706. 2008.
+```
+---
+## Descriptions multiples
+- application d'une même fonction à plusieurs variables données
+
+```r
+penguins %&gt;% summarise_at(vars(bill_l:flip_l),
+                          list(~ mean(., na.rm = TRUE), 
+                               ~ median(., na.rm = TRUE)))
+```
+
+```
+# A tibble: 1 × 6
+  bill_l_mean bill_d_mean flip_l_mean bill_l_median bill_d_median flip_l_median
+        &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+1        43.9        17.2        201.          44.4          17.3           197
+```
+- autres façons
+
+```r
+penguins %&gt;% summarise_at(vars(3:5),
+                          list(~ mean(., na.rm = TRUE),
+                               ~ median(., na.rm = TRUE)))
+penguins %&gt;% summarise_at(vars(bill_l,bill_d,flip_l),
+                          list(~ mean(., na.rm = TRUE), 
+                               ~ median(., na.rm = TRUE)))
+```
+---
+## Manipulations d'un facteur
+- changement des niveaux d'un facteur donné
+
+
+```r
+penguins %&gt;% 
+  mutate( species = fct_recode( species, "Delo" = "Adelie" )) %&gt;%
+  select(1:3)
+```
+
+```
+# A tibble: 344 × 3
+   species island    bill_l
+   &lt;fct&gt;   &lt;fct&gt;      &lt;dbl&gt;
+ 1 Delo    Torgersen   39.1
+ 2 Delo    Torgersen   39.5
+ 3 Delo    Torgersen   40.3
+ 4 Delo    Torgersen   NA  
+ 5 Delo    Torgersen   36.7
+ 6 Delo    Torgersen   39.3
+ 7 Delo    Torgersen   38.9
+ 8 Delo    Torgersen   39.2
+ 9 Delo    Torgersen   34.1
+10 Delo    Torgersen   42  
+# ℹ 334 more rows
+```
+---
+## Manipulations de plusieurs facteurs 
+- changement de niveaux sur tous les facteurs
+
+
+```r
+pingoo &lt;- penguins %&gt;% mutate_if( is.factor, fct_recode,
+                                    "Delo" = "Adelie", 
+                                    "Delo" = "Dream") 
+```
+- petite vérification
+
+```r
+pingoo %&gt;% select_if(is.factor) %&gt;% 
+           str()
+```
+
+```
+tibble [344 × 3] (S3: tbl_df/tbl/data.frame)
+ $ species: Factor w/ 3 levels "Delo","Chinstrap",..: 1 1 1 1 1 1 1 1 1 1 ...
+ $ island : Factor w/ 3 levels "Biscoe","Delo",..: 3 3 3 3 3 3 3 3 3 3 ...
+ $ sex    : Factor w/ 2 levels "female","male": 2 1 1 NA 1 2 1 2 NA NA ...
+```
+
+---
+## Transformations des données : un exemple
+
+.pull-left[
+- on parle de pivot de données quand on cherche à changer la nature des individus statistiques, prenons un exemple où l'individu est ici un pays
+
+```r
+pays &lt;- c("Belgique", "France")
+pop1992 &lt;- c(10045622,	57374179) 
+pop1997 &lt;- c(10199787,	58623428)
+d &lt;- tibble(pays, pop1992, pop1997)
+d
+```
+
+```
+# A tibble: 2 × 3
+  pays      pop1992  pop1997
+  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+1 Belgique 10045622 10199787
+2 France   57374179 58623428
+```
+]
+.pull-right[
+- on cherche alors à créer un tableau où l'individu est un recensement, et le pays une variable
+
+```r
+d %&gt;% pivot_longer(c("pop1992","pop1997"))
+```
+
+```
+# A tibble: 4 × 3
+  pays     name       value
+  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+1 Belgique pop1992 10045622
+2 Belgique pop1997 10199787
+3 France   pop1992 57374179
+4 France   pop1997 58623428
+```
+]
+---
+## Manipulations des chaînes de caractères : un exemple
+- concaténation et séparations simples
+
+```r
+d &lt;- penguins %&gt;% unite(new , island, species)
+d %&gt;% slice(1:3)
+```
+
+```
+# A tibble: 3 × 7
+  new              bill_l bill_d flip_l  mass sex     year
+  &lt;chr&gt;             &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+1 Torgersen_Adelie   39.1   18.7    181  3750 male    2007
+2 Torgersen_Adelie   39.5   17.4    186  3800 female  2007
+3 Torgersen_Adelie   40.3   18      195  3250 female  2007
+```
+
+```r
+d %&gt;% separate(new, c("ile", "espece")) %&gt;% slice(1:3)
+```
+
+```
+# A tibble: 3 × 8
+  ile       espece bill_l bill_d flip_l  mass sex     year
+  &lt;chr&gt;     &lt;chr&gt;   &lt;dbl&gt;  &lt;dbl&gt;  &lt;int&gt; &lt;int&gt; &lt;fct&gt;  &lt;int&gt;
+1 Torgersen Adelie   39.1   18.7    181  3750 male    2007
+2 Torgersen Adelie   39.5   17.4    186  3800 female  2007
+3 Torgersen Adelie   40.3   18      195  3250 female  2007
+```
+
+---
+## Manipulations des dates  : un exemple
+- transcription facile
+
+
+```r
+library(lubridate) ## package non contenu dans le tidyverse mais complètement compatible
+ymd(20101215)
+ymd(101215)
+mdy("4/1/17")
+mdy("4-1-17")
+mdy("04-1-2017")
+```
+
+```
+[1] "2010-12-15"
+[1] "2010-12-15"
+[1] "2017-04-01"
+[1] "2017-04-01"
+[1] "2017-04-01"
+```
+
+---
+
+
+class: inverse, middle, center
+# Graphiques statiques avec ggplot2
+
+---
+
+## Structure générale
+
+- l'intérêt majeur : 
+  + automatisation naturelle de beaucoup de représentations et garantie de maintenir une charte graphique avec un rendu déjà abouti sans trop d'efforts
+- les inconvénients : 
+  + environnements en évolution constante, un nombre énorme de fonctions pour différentes situations
+- le fonctionnement :
+  + tous les graphiques débutent par l'appel de la fonction `ggplot()`
+  + ensuite, empilement de couches/calques/écailles, ce n'est pas le pipe que sert mais le signe `+`
+   
+
+---
+
+## les graphiques de base
+- un peu moins de facilité qu'avec `plot` qui opte pour la représentation en fonction des natures des variables
+- les fonctions de base 
+  + `geom_point` pour un nuage de points
+  + `geom_line` pour une interpolation linéaire de points
+  + `geom_bar` pour un diagramme en bâton
+  + `geom_boxplot` pour une boîte à moustaches
+  + `geom_hist` pour un histogramme
+- la syntaxe commune fait intervenir un argument `aes()` que l'on peut partager entre plusieurs couches
+  + l'argument `x=` permet de désigner la variable en abscisse
+  + l'argument `y=` permet de désigner la variable en ordonnée
+  + l'argument `group=` permet de désigner la variable qualitative pour séparer les valeurs suivant les modalités
+  + l'argument `color=` permet de désigner la variable utilisée pour la couleur du tracé
+  + l'argument `fill=` permet de désigner la variable utilisée pour le remplissage des formes
+  
+---
+
+## Diagramme en bâtons
+
+- la structure lisible mais légèrement plus lourde qu'avec `plot()`
+.pull-left[
+
+```r
+penguins %&gt;% 
+  ggplot(aes(x = species)) + geom_bar()
+```
+]
+.pull-left[
+![](VizuXa_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+]
+---
+
+## Ajout d'une variable
+
+- pour enrichir la représentation, il peut être intéressant de croiser les variables
+.pull-left[
+
+```r
+penguins %&gt;% 
+  ggplot(aes(x = species, fill = island)) + geom_bar()
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Maîtriser l'intégration de la nouvelle variable
+.pull-left[
+- plusieurs variantes possibles
+
+```r
+penguins %&gt;% 
+  ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge())
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+]
+---
+## Cosmétiques
+
+.pull-left[
+- afin de rendre le graphique plus lisible
+
+```r
+penguins %&gt;% ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge()) +
+  ggtitle("Répartition des manchots par espèce") +
+  xlab("Espèces des manchots observés") +
+  ylab("Nombres d'individus") +
+  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+]
+---
+
+## L'histogramme
+
+
+.pull-left[
+- là encore il faut savoir si on veut un histogramme complet puis donner une répartition au sein d'une classe ou alors autant d'histogrammes que de modalités
+
+```r
+penguins %&gt;% na.omit() %&gt;%
+  ggplot() +
+  geom_histogram(
+    aes(
+      x = bill_l,
+      y = after_stat(density),
+      fill = sex
+    ),
+    bins = 6,
+    alpha = 0.4,
+    position = "identity"
+  )
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+]
+---
+## La boîte à moustache
+
+.pull-left[
+- comme pour les diagrammes en bâtons
+
+
+```r
+penguins %&gt;% 
+ggplot() +
+aes(x = species, y = bill_l, fill = island) +
+geom_boxplot()
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+]
+
+---
+## Le nuage de points
+
+- la fonction `geom_smooth()` permet d'ajouter les droites de régression par groupe ainsi que les intervalles de confiance sur la tendance
+.pull-left[
+
+```r
+penguins %&gt;%
+  ggplot() +
+  aes(x = bill_l, y = bill_d, color = species) +
+  labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+]
+
+---
+## Graphique d'interaction
+
+- illustration d'un effet d'interaction dans un modèle linéaire
+![](VizuXa_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+
+---
+## La magie des facettes
+
+.pull-left[
+- possibilité de créer une mosaïque
+
+```r
+penguins %&gt;% 
+  na.omit() %&gt;% 
+  ggplot() +
+  aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
+  geom_histogram(alpha = 0.5) +
+  facet_wrap(~island+sex) +
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+]
+---
+
+## Disposer plusieurs sorties
+
+- il existe plusieurs façons de diposer plusieurs graphiques suivant le rendu recherché, encore une fois on ne cherche pas ici à être exhaustif
+.pull-left[
+- deux solutions présentées ici, une première plutôt directe, avec le paquet `patchwork` 
+
+```r
+p1 &lt;- penguins %&gt;% ggplot(aes(x=bill_l, y =bill_d, color = island)) + geom_point()
+p2 &lt;- penguins %&gt;% ggplot(aes(x=bill_l, y = after_stat(density) , fill = island)) + geom_histogram(alpha = .6, bins = 7)
+p3&lt;- penguins %&gt;% ggplot(aes(x=bill_l, fill = island)) + geom_boxplot(alpha = .6)
+library(patchwork)
+p1/(p2+p3) 
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+]
+
+---
+
+## Disposer plusieurs sorties, une deuxième solution possible
+
+.pull-left[
+- la seconde solution,  un peu plus complète mais plus lourde avec la fonction  `ggpubr::ggarrange()`
+
+```r
+library(ggpubr)
+ggarrange(p1, p3, p2,
+          labels = c("A", "B", "C"),
+          ncol = 2, nrow = 2, common.legend = TRUE)
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+]
+
+---
+## Ensuite ?
+
+- énorme communauté autour de `tidyverse` et `ggplot`
+- chaque question qu'on se pose à très certainement une réponse simple, concise (ou presque) et reproductible
+- quelques sources 
+  + &lt;a href="http://www.sthda.com/english/"&gt;Statistical tools for high-throughput data analysis&lt;/a&gt;
+  + &lt;a href="https://www.datanovia.com/en/fr/"&gt; Datanovia&lt;/a&gt;
+  + &lt;a href="https://stackoverflow.com/"&gt; Stackoverflow&lt;/a&gt;
+
+
+---
+class: inverse, middle, center
+# Graphiques interactifs plotly
+
+---
+
+## Des graphiques pour des rapports html
+
+- le package `plotly` est porté sur plusieurs logiciels dont `R` et `Python`
+- le fonctionnement - à la syntaxe près évidemment - est proche de celui de `ggplot2`
+- à partir des sorties, il est possible d'enregistrer des images figées
+- le passage de la souris sur le graphique permet de faire apparaître les informations utilisées pour le graphique, on peut zoomer sur certaines parties et sauver le zoom
+- possibilité de réaliser des animations
+- source assez complète : &lt;a href="plotly.com/r/"&gt;plotly.com&lt;/a&gt;
+
+---
+## Les graphiques de base
+.pull-left[
+- les fonctions changent et l'empilement se fait avec le pipe `%&gt;%`
+
+
+```r
+library(plotly)
+penguins %&gt;% 
+  plot_ly(x = ~bill_d, y = ~bill_l, type = "scatter", mode = "markers") %&gt;% 
+  layout(
+    title = "longueur et profondeur de bec"
+    xaxis = list(title = "profondeur de bec"),
+    yaxis = list(title = "longueur de bec"))
+```
+]
+.pull-right[
+
+
+&lt;div align="center"&gt;
+&lt;iframe src="scatter.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+&lt;/div&gt;
+]
+---
+## Les avantages de l'interactivité
+
+- ce type de représentation peut vraiment être utile en phase exploratoire, prenons l'exemple des données de covid
+
+
+&lt;iframe src="covid.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+- code correspondant
+
+```r
+covid &lt;- read.table(
+  "owid-covid-data.csv",
+  header = T,
+  sep = ",",
+  stringsAsFactors = TRUE
+) %&gt;%
+  mutate(date = ymd(date)) %&gt;%
+  filter(
+    location %in% c(
+      "France",
+      "United States",
+      "Mexico",
+      "Portugal",
+      "Spain",
+      "United Kingdom",
+      "Brazil",
+      "South Africa"
+    ),
+    (ymd(20201101) &lt;= date) &amp; (ymd(20210201) &gt;= date)
+  ) %&gt;%
+  droplevels()
+covid %&gt;% plot_ly(type = "scatter", mode = "lines") %&gt;%
+  add_trace(
+    x = ~ date,
+    y =  ~ new_cases,
+    color = ~ location,
+    fill = "tozeroy"
+  ) %&gt;%
+  layout(
+    title = 'COVID-19',
+    xaxis = list(title = 'Date'),
+    yaxis = list(title = 'Number of new cases'),
+    legend = list(title = list(text = '&lt;b&gt; Countries &lt;/b&gt;')),
+    annotations = list(
+      x = 1,
+      y = -.1,
+      text = "Source: https://ourworldindata.org/",
+      showarrow = F,
+      xref = 'paper',
+      yref = 'paper',
+      xanchor = 'right',
+      yanchor = 'auto',
+      xshift = 0,
+      yshift = 0,
+      font = list(size = 7)
+    )
+  )
+```
+
+---
+
+## De ggplot à plotly
+.pull-left[
+- une fonction permet de transcrire un objet créé par `ggplot()` en un objet pouvant sortir de `plot_ly()`
+
+
+```r
+p &lt;- penguins %&gt;% ggplot() +
+  aes(x = bill_d, y = bill_l, color = island) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "lien entre les variables longueur et profondeur de bec",
+       x = "profondeur de bec",
+       y = "longueur de bec",
+       color = "île")
+```
+]
+.pull-right[
+
+```r
+p  %&gt;%  ggplotly()
+```
+
+
+
+&lt;iframe src="ggplotly.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+]
+---
+## Facilitation de la visualisation dans l'espace
+- dans des cas très précis, on peut être amené à rechercher une vision en 3 dimensions
+- prenons un exemple, ici on recherche à optimiser l'utilisation de coproduits dans un mélange commercialisable
+
+&lt;iframe src="optim2.html" width="800" height="400" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+---
+
+## Un autre exemple en 3d
+
+- une illustration de l'ACP
+
+
+&lt;iframe src="coincoin.html" width="1000" height="900" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+
+---
+## Une petite animation pour finir
+.pull-left[   
+- outil pratique pour marquer une évolution temporelle, ou alors pour de la sensibilité aux paramètres
+
+
+```r
+penguins %&gt;%
+  plot_ly(
+    x = ~ bill_d,
+    y = ~ bill_l,
+    frame = ~ year,
+    type = "scatter",
+    mode = "markers",
+    showlegend = FALSE
+  ) %&gt;%
+  layout(
+    title = "longueur de bec en fonction de la profondeur",
+    xaxis = list(title = "profondeur de bec"),
+    yaxis = list(title = "longueur de bec")
+  )
+```
+]
+.pull-right[
+
+
+&lt;iframe src="time.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"&gt; &lt;/iframe&gt;
+]
+---
+class: inverse, middle, center
+# Covariables spatiales
+
+---
+## Le problème des cartes
+.pull-left[
+- les objets qui permettent de définir des contours sont assez complexes]
+.pull-right[
+
+```r
+world_map &lt;- map_data("world")
+ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill="dodgerblue4", colour = "white")
+```
+]
+
+
+```r
+world_map &lt;- map_data("world")
+ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill="dodgerblue4", colour = "white")
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
+
+---
+## Utilisation des cartes
+- considérons les données suivantes 
+
+```r
+arrests &lt;- USArrests 
+head(arrests)
+```
+
+```
+           Murder Assault UrbanPop Rape
+Alabama      13.2     236       58 21.2
+Alaska       10.0     263       48 44.5
+Arizona       8.1     294       80 31.0
+Arkansas      8.8     190       50 19.5
+California    9.0     276       91 40.6
+Colorado      7.9     204       78 38.7
+```
+- pour représenter géographiquement ces informations
+
+```r
+states_map &lt;- map_data("state")
+arrests &lt;- arrests %&gt;% 
+  mutate(region = tolower(rownames(USArrests)))
+arrests_map &lt;- left_join(states_map, arrests, by = "region")
+p &lt;- arrests_map %&gt;% ggplot() +
+  aes(x = long, y= lat, group = region) +
+  geom_polygon(aes(fill = Assault), color = "white") 
+```
+
+---
+
+## Représentation spatiale du nombre d'arrestations aux USA
+
+
+```r
+p
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+
+---
+## Le problème de la projection 
+
+- il est possible de changer de méthode de projection
+
+```r
+p + coord_map(projection = "orthographic")
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+
+---
+## Plusieurs choix possibles 
+
+- il existe de nombreuses versions, certains paquets développent les possibilités suivant l'importance de la fidélité de la représentation
+
+```r
+p + coord_map(projection = "conic", lat0 = 30)
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+
+---
+## Rajouter les noms
+
+```r
+region.lab.data &lt;- arrests_map %&gt;%
+  group_by(region) %&gt;%
+  summarise(long = mean(long), lat = mean(lat))
+library(ggrepel)
+p + geom_label_repel(data = region.lab.data, aes(x = long, y = lat, label = region), size = 4 , colour = "white", fill = "dodgerblue") +
+  coord_map()
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+
+---
+
+## Placer des villes
+.pull-left[
+- on peut aller chercher des packages spécifiques ou les données brutes
+
+```r
+cities &lt;-
+  read.table(
+    "us-state-capitals.csv",
+    sep = ",",
+    stringsAsFactors = TRUE,
+    header = TRUE
+  ) %&gt;% filter(!name %in% c("Alaska", "Hawaii"))
+head(cities)
+```
+
+```
+         name description latitude  longitude
+1     Alabama  Montgomery 32.37772  -86.30057
+2     Arizona     Phoenix 33.44814 -112.09696
+3    Arkansas Little Rock 34.74661  -92.28899
+4  California  Sacramento 38.57667 -121.49363
+5    Colorado      Denver 39.73923 -104.98486
+6 Connecticut    Hartford 41.76405  -72.68220
+```
+]
+.pull-right[
+
+```r
+p_cities &lt;- p +
+  geom_point(data = cities, aes(x = longitude, y  = latitude, group = name))  +
+  geom_label_repel(
+    data = cities,
+    aes(
+      x = longitude,
+      y  = latitude,
+      group = name,
+      label = paste(paste0(description,","), "\n", str_to_upper(name))
+    ),
+    size = 4 ,
+    colour = "white",
+    fill = "dodgerblue"
+  ) +
+  coord_map()
+```
+]
+---
+
+## Représentation spatiale du nombre d'arrestations aux USA avec capitales des états
+
+![](VizuXa_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create();
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,1054 @@
+---
+title: Visualisation des données
+author: "JL Marchand"
+date: "`r Sys.Date()`"
+output: 
+  xaringan::moon_reader:
+    css: ["xaringan-themer.css","my_own.css"]
+header-includes:
+- \usepackage{booktabs}
+- \usepackage{longtable}
+- \usepackage{array}
+- \usepackage{multirow}
+- \usepackage{wrapfig}
+- \usepackage{float}
+- \usepackage{colortbl}
+- \usepackage{pdflscape}
+- \usepackage{tabu}
+- \usepackage{threeparttable}
+- \usepackage{pgf,tikz}
+- \usepackage[usenames,dvipsnames]{xcolor}
+- \usetikzlibrary{arrows}
+- \usepackage{pgfplots,filecontents}
+- \usetikzlibrary{calc}
+- \usetikzlibrary{patterns}
+---
+
+```{r xaringan-themer, include=FALSE, warning=FALSE, eval=TRUE}
+library(xaringanthemer)
+style_mono_accent(base_color = "#104e8b")
+
+#options(htmltools.preserve.raw = FALSE)
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  comment = '',
+  highlight = TRUE,
+  warning = FALSE,
+  error = FALSE,
+  results='hold', 
+  message = FALSE
+    )
+library(htmltools)
+library(plotly)
+```
+
+
+class: inverse, middle, center
+# Les enjeux de la visualisation
+
+---
+
+## Pour en remettre une couche
+
+- même si nous allons développer ici la partie technique pour s'approprier les outils, la **conception** passe nécessairement par une réflexion au préalable
+  + le choix de l'information présentée, résumée sur le(s) graphique(s)
+    * type de graphique, données à utiliser, résultats d'analyse, etc.
+  + l'ensemble des éléments facilitant la lecture de cette information
+    * choix des axes, titres et légendes, mise en relief, etc.
+  + la ligne éditoriale suivant le public visé
+    * tous les éléments précédents choisis suivant la qualité du lectorat et ses connaissances statistiques (enjeu important en entreprise)
+
+---
+
+## Au menu aujourd'hui et demain
+
+- Objectif : revenir sur les différentes étapes de réalisation à travers l'utilisation de paquets spécifiques
+  + manipulation et gestion des tableaux  avec `tidyr`, `purrr`, `dplyr` et `forcats`
+  + représentations statiques  avec `ggplot2`
+  + représentations interactives avec `plotly`
+  + la carte pour les desserts
+
+
+- liste des paquets utilisés  
+  + `tidyverse`, `palmerpenguins`, `lubridate`, `patchwork`, `ggpubr`, `ggrepel`, `plotly`
+
+---
+
+class: inverse, middle, center
+# Manipulation des données avec tidyverse
+
+---
+
+## Description approximative
+
+Le paquet **tidyverse** est un regroupement de plusieurs paquets (cf https://www.tidyverse.org/ pour des descriptions et surtout les **cheatsheets**). Grossièrement :
+
+- **tibble** pour la structure des données (nouveau format différent d'un data.frame ou .table)
+- **dplyr** pour la manipulation et l'analyse proprement dite
+- **forcats** pour des fonctionnalités propres aux facteurs
+- **tidyr** pour la préparation des données (pivots et autres)
+- **lubridate** pour la gestion des dates
+- **stringr** pour la gestion des chaînes de caractères
+- **readr** pour l'importation (format tibble en sortie)
+- **ggplot2** pour la visualisation
+- **purrr** pour la programmation
+- ...
+
+---
+
+## Chargement des paquets
+
+- le chargement du package `tidyverse` permet le chargement de tous les packages listés précédemment
+```{r tidyv, echo=TRUE,eval=TRUE}
+library(tidyverse)
+```
+
+- les fonctions de R Base, `stats::filter()` et `stats::lag()` servent notamment pour les études de séries temporelles, elles restent disponibles tant qu'on précise le paquet dans l'appel de la fonction, sinon, le choix par défaut correspondra désormais aux fonctions du `dplyr` dont l'action n'a rien à voir avec ses homonymes 
+
+---
+
+## Début de discussion
+
+- boîte à outils standard
+- lisibilité du code (/base)
+- prise en main plus naturelle ? (format par défaut dans RStudio)
+- comme toujours : coût d'entrée
+- plus orienté utilisateur que performance (/data.table)
+
+Présentation de tidyverse essentiellement basée sur une lecture du tutoriel suivant
+
+https://juba.github.io/tidyverse/
+
+---
+
+## Exemples à travers un jeu de données
+- les données portent sur l'étude de manchots en Antarctique
+```{r}
+library(palmerpenguins)
+data(package = 'palmerpenguins')
+penguins
+```
+
+---
+
+## Premières manipulations
+- affichage de la structure
+```{r}
+glimpse(penguins)
+```
+
+
+---
+
+## Les fonctions dplyr : rename
+- changement des noms de variable assez simple
+```{r}
+penguins <- rename(
+  penguins,
+  bill_l = bill_length_mm,
+  bill_d = bill_depth_mm,
+  flip_l = flipper_length_mm,
+  mass = body_mass_g
+)
+glimpse(penguins)
+```
+
+
+---
+
+## Les fonctions dplyr : slice
+- sélection de lignes/individus par leur position dans le tableau
+```{r, results='markup'}
+slice(penguins, 123)
+slice(penguins, 3:6)
+```
+
+---
+
+## Les fonctions dplyr : filter
+.pull-left[
+- rappel sur les opérateur logiques
+  + `&` pour "et", la réponse est `TRUE` si toutes les conditions sont satisfaites
+  + `|` pour "ou", la réponse est `TRUE` si au moins une des conditions sont satisfaites
+  + `!` pour "non", la réponse est `TRUE` si la condition est fausse
+```{r}
+(1 > 2)&(1 < 2)
+(1 > 2)|(1 < 2)
+!(1 > 2)
+```
+]
+.pull-right[
+- sélection de lignes/individus par condition(s) sur les valeurs des variables
+```{r}
+filter(penguins, (species != "Adelie") & (bill_l >= 39))
+```
+]
+  
+---
+
+## Les fonctions dplyr : select
+
+.pull-left[
+- sélection de colonnes/variables par nom ou condition
+```{r}
+select(penguins, species, bill_l)
+```
+]
+.pull-right[
+- pour sélectionner plusieurs variables 
+```{r, eval=F}
+select(penguins, species:bill_l)
+select(penguins, starts_with("bill")) 
+select(penguins, ends_with("_l")) ## aussi contains() et matches()
+select_if(penguins, is.numeric) ## par booléen
+
+```
+]
+---
+
+## Les fonctions dplyr : arrange
+- tri des observations suivant les valeurs des variables
+```{r}
+arrange(penguins,bill_d, desc(bill_l))
+```
+
+---
+
+## Les fonctions dplyr : mutate
+- création d'une nouvelle variable qui remplace une existante ou qui vient s'ajouter au tableau
+```{r}
+mutate(penguins,
+       bill_length_cm = bill_l / 10,
+       Bill_length_cm = bill_l / 10)
+```
+
+- on fera donc encore une fois attention à l'orthographe des variables 
+---
+
+## Composition de fonctions avec l'opérateur "pipe"
+- composition de gauche à droite pour plus de lisibilité pour vous comme pour une personne qui devrait relire votre code !  
+.pull-left[
+
+```{r}
+slice(arrange(select_if (
+  filter (penguins,  island == "Biscoe"),
+  is.numeric
+), mass) , 1:3)
+```
+]
+.pull-right[
+```{r}
+penguins %>% filter( island == "Biscoe" ) %>% 
+             select_if ( is.numeric ) %>% 
+             arrange( mass ) %>% 
+             slice(1:3)
+# succession des opérations limpide, pas de mélange avec les options des fonctions
+```
+]
+---
+
+## Les fonctions dplyr : group_by
+- regroupement des indvidus 
+```{r}
+penguins %>% group_by(island) %>% 
+             slice(1:2)
+```
+
+---
+
+## Les fonctions dplyr : summarise
+- descriptions des données par sous-groupes
+```{r}
+penguins %>% group_by(island) %>% 
+             summarise(long_moy = mean(bill_l, na.rm=T),
+                       long_max = max(bill_l, na.rm = T),
+                       nb = n())
+```
+
+---
+
+## Les fonctions dplyr : count
+- autre façon de compter
+```{r}
+penguins %>% count(island, species) %>%
+             arrange(desc(n))
+```
+- cela revient quasiment au même que
+```{r, eval=FALSE}
+penguins %>% group_by(island, species) %>%
+             summarise(n=n()) %>% 
+             arrange(desc(n))
+```
+
+---
+
+## Descriptions
+
+- grouper/dégrouper
+```{r}
+penguins %>% group_by(island, species) %>% 
+             summarise(nb = n()) %>% 
+             ungroup() %>% 
+             mutate(pourcentage = nb / sum(nb) * 100)
+```
+---
+## Descriptions conditionnelles
+- version conditionnelle des fonctions , pour par exemple appliquer la même opération sur toutes les variables d'un même type 
+```{r}
+penguins %>% group_by(island, species) %>% 
+             summarise_if(is.numeric,mean, na.rm = T)
+```
+---
+## Descriptions multiples
+- application d'une même fonction à plusieurs variables données
+```{r}
+penguins %>% summarise_at(vars(bill_l:flip_l),
+                          list(~ mean(., na.rm = TRUE), 
+                               ~ median(., na.rm = TRUE)))
+```
+- autres façons
+```{r, eval=F}
+penguins %>% summarise_at(vars(3:5),
+                          list(~ mean(., na.rm = TRUE),
+                               ~ median(., na.rm = TRUE)))
+penguins %>% summarise_at(vars(bill_l,bill_d,flip_l),
+                          list(~ mean(., na.rm = TRUE), 
+                               ~ median(., na.rm = TRUE)))
+```
+---
+## Manipulations d'un facteur
+- changement des niveaux d'un facteur donné
+
+```{r}
+penguins %>% 
+  mutate( species = fct_recode( species, "Delo" = "Adelie" )) %>%
+  select(1:3)
+```
+---
+## Manipulations de plusieurs facteurs 
+- changement de niveaux sur tous les facteurs
+
+```{r}
+pingoo <- penguins %>% mutate_if( is.factor, fct_recode,
+                                    "Delo" = "Adelie", 
+                                    "Delo" = "Dream") 
+```
+- petite vérification
+```{r}
+pingoo %>% select_if(is.factor) %>% 
+           str()
+```
+
+---
+## Transformations des données : un exemple
+
+.pull-left[
+- on parle de pivot de données quand on cherche à changer la nature des individus statistiques, prenons un exemple où l'individu est ici un pays
+```{r}
+pays <- c("Belgique", "France")
+pop1992 <- c(10045622,	57374179) 
+pop1997 <- c(10199787,	58623428)
+d <- tibble(pays, pop1992, pop1997)
+d
+```
+]
+.pull-right[
+- on cherche alors à créer un tableau où l'individu est un recensement, et le pays une variable
+```{r}
+d %>% pivot_longer(c("pop1992","pop1997"))
+```
+]
+---
+## Manipulations des chaînes de caractères : un exemple
+- concaténation et séparations simples
+```{r, results='markup'}
+d <- penguins %>% unite(new , island, species)
+d %>% slice(1:3)
+d %>% separate(new, c("ile", "espece")) %>% slice(1:3)
+```
+
+---
+## Manipulations des dates  : un exemple
+- transcription facile
+
+```{r}
+library(lubridate) ## package non contenu dans le tidyverse mais complètement compatible
+ymd(20101215)
+ymd(101215)
+mdy("4/1/17")
+mdy("4-1-17")
+mdy("04-1-2017")
+```
+
+---
+
+
+class: inverse, middle, center
+# Graphiques statiques avec ggplot2
+
+---
+
+## Structure générale
+
+- l'intérêt majeur : 
+  + automatisation naturelle de beaucoup de représentations et garantie de maintenir une charte graphique avec un rendu déjà abouti sans trop d'efforts
+- les inconvénients : 
+  + environnements en évolution constante, un nombre énorme de fonctions pour différentes situations
+- le fonctionnement :
+  + tous les graphiques débutent par l'appel de la fonction `ggplot()`
+  + ensuite, empilement de couches/calques/écailles, ce n'est pas le pipe que sert mais le signe `+`
+   
+
+---
+
+## les graphiques de base
+- un peu moins de facilité qu'avec `plot` qui opte pour la représentation en fonction des natures des variables
+- les fonctions de base 
+  + `geom_point` pour un nuage de points
+  + `geom_line` pour une interpolation linéaire de points
+  + `geom_bar` pour un diagramme en bâton
+  + `geom_boxplot` pour une boîte à moustaches
+  + `geom_hist` pour un histogramme
+- la syntaxe commune fait intervenir un argument `aes()` que l'on peut partager entre plusieurs couches
+  + l'argument `x=` permet de désigner la variable en abscisse
+  + l'argument `y=` permet de désigner la variable en ordonnée
+  + l'argument `group=` permet de désigner la variable qualitative pour séparer les valeurs suivant les modalités
+  + l'argument `color=` permet de désigner la variable utilisée pour la couleur du tracé
+  + l'argument `fill=` permet de désigner la variable utilisée pour le remplissage des formes
+  
+---
+
+## Diagramme en bâtons
+
+- la structure lisible mais légèrement plus lourde qu'avec `plot()`
+.pull-left[
+```{r, eval=FALSE}
+penguins %>% 
+  ggplot(aes(x = species)) + geom_bar()
+```
+]
+.pull-left[
+```{r, echo=FALSE}
+penguins %>% 
+  ggplot(aes(x = species)) + geom_bar()
+```
+]
+---
+
+## Ajout d'une variable
+
+- pour enrichir la représentation, il peut être intéressant de croiser les variables
+.pull-left[
+```{r, eval = FALSE}
+penguins %>% 
+  ggplot(aes(x = species, fill = island)) + geom_bar()
+```
+]
+.pull-right[
+```{r, echo = FALSE}
+penguins %>% 
+  ggplot(aes(x = species, fill = island)) + geom_bar()
+```
+]
+
+---
+
+## Maîtriser l'intégration de la nouvelle variable
+.pull-left[
+- plusieurs variantes possibles
+```{r, eval=FALSE}
+penguins %>% 
+  ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge())
+```
+]
+.pull-right[
+```{r, echo =FALSE}
+penguins %>% 
+  ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge())
+```
+]
+---
+## Cosmétiques
+
+.pull-left[
+- afin de rendre le graphique plus lisible
+```{r, eval=FALSE}
+penguins %>% ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge()) +
+  ggtitle("Répartition des manchots par espèce") +
+  xlab("Espèces des manchots observés") +
+  ylab("Nombres d'individus") +
+  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+penguins %>% ggplot(aes(x = species, fill = island)) + 
+  geom_bar(position = position_dodge()) +
+  ggtitle("Répartition des manchots par espèce") +
+  xlab("Espèces des manchots observés") +
+  ylab("Nombres d'individus") +
+  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+```
+]
+---
+
+## L'histogramme
+
+
+.pull-left[
+- là encore il faut savoir si on veut un histogramme complet puis donner une répartition au sein d'une classe ou alors autant d'histogrammes que de modalités
+```{r, eval=FALSE}
+penguins %>% na.omit() %>%
+  ggplot() +
+  geom_histogram(
+    aes(
+      x = bill_l,
+      y = after_stat(density),
+      fill = sex
+    ),
+    bins = 6,
+    alpha = 0.4,
+    position = "identity"
+  )
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+penguins %>% na.omit() %>% 
+ggplot() +
+geom_histogram(aes(x = bill_l, y = after_stat(density), fill = sex), bins = 6, alpha = 0.4, position = "identity")
+```
+]
+---
+## La boîte à moustache
+
+.pull-left[
+- comme pour les diagrammes en bâtons
+
+```{r, eval= FALSE}
+penguins %>% 
+ggplot() +
+aes(x = species, y = bill_l, fill = island) +
+geom_boxplot()
+```
+]
+.pull-right[
+```{r, echo= FALSE}
+penguins %>% 
+ggplot() +
+aes(x = species, y = bill_l, fill = island) +
+geom_boxplot()
+```
+]
+
+---
+## Le nuage de points
+
+- la fonction `geom_smooth()` permet d'ajouter les droites de régression par groupe ainsi que les intervalles de confiance sur la tendance
+.pull-left[
+```{r, eval=FALSE}
+penguins %>%
+  ggplot() +
+  aes(x = bill_l, y = bill_d, color = species) +
+  labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+penguins %>%
+  ggplot() +
+  aes(x = bill_l, y = bill_d, color = species) +
+  labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
+  geom_point() +
+  geom_smooth(method = "lm")
+```
+]
+
+---
+## Graphique d'interaction
+
+- illustration d'un effet d'interaction dans un modèle linéaire
+```{r, echo=FALSE}
+penguins %>% na.omit() %>% 
+  group_by(sex, island) %>% 
+  summarise(moyennes = mean(bill_l)) %>% 
+  ggplot() +
+  aes(x = sex, y = moyennes, group = island, color = island) +
+  labs(x = "sexe", y = "longueurs de bec moyennes", color = "île") + geom_point() + geom_line()
+```
+
+---
+## La magie des facettes
+
+.pull-left[
+- possibilité de créer une mosaïque
+```{r, eval=FALSE}
+penguins %>% 
+  na.omit() %>% 
+  ggplot() +
+  aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
+  geom_histogram(alpha = 0.5) +
+  facet_wrap(~island+sex) +
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+penguins %>% 
+  na.omit() %>% 
+  ggplot() +
+  aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
+  geom_histogram(alpha = 0.5) +
+  facet_wrap(~island+sex) +
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+```
+]
+---
+
+## Disposer plusieurs sorties
+
+- il existe plusieurs façons de diposer plusieurs graphiques suivant le rendu recherché, encore une fois on ne cherche pas ici à être exhaustif
+.pull-left[
+- deux solutions présentées ici, une première plutôt directe, avec le paquet `patchwork` 
+```{r, eval=FALSE}
+p1 <- penguins %>% ggplot(aes(x=bill_l, y =bill_d, color = island)) + geom_point()
+p2 <- penguins %>% ggplot(aes(x=bill_l, y = after_stat(density) , fill = island)) + geom_histogram(alpha = .6, bins = 7)
+p3<- penguins %>% ggplot(aes(x=bill_l, fill = island)) + geom_boxplot(alpha = .6)
+library(patchwork)
+p1/(p2+p3) 
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+p1 <- penguins %>% ggplot(aes(x=bill_l, y =bill_d, color = island)) + geom_point()
+p2 <- penguins %>% ggplot(aes(x=bill_l, y = after_stat(density) , fill = island)) + geom_histogram(alpha = .6, bins = 7)
+p3<- penguins %>% ggplot(aes(x=bill_l, fill = island)) + geom_boxplot(alpha = .6)
+library(patchwork)
+p1/(p2+p3) 
+```
+]
+
+---
+
+## Disposer plusieurs sorties, une deuxième solution possible
+
+.pull-left[
+- la seconde solution,  un peu plus complète mais plus lourde avec la fonction  `ggpubr::ggarrange()`
+```{r, eval=FALSE}
+library(ggpubr)
+ggarrange(p1, p3, p2,
+          labels = c("A", "B", "C"),
+          ncol = 2, nrow = 2, common.legend = TRUE)
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+library(ggpubr)
+ggarrange(p1, p3, p2,
+          labels = c("A", "B", "C"),
+          ncol = 2, nrow = 2, common.legend = TRUE)
+```
+]
+
+---
+## Ensuite ?
+
+- énorme communauté autour de `tidyverse` et `ggplot`
+- chaque question qu'on se pose à très certainement une réponse simple, concise (ou presque) et reproductible
+- quelques sources 
+  + <a href="http://www.sthda.com/english/">Statistical tools for high-throughput data analysis</a>
+  + <a href="https://www.datanovia.com/en/fr/"> Datanovia</a>
+  + <a href="https://stackoverflow.com/"> Stackoverflow</a>
+
+
+---
+class: inverse, middle, center
+# Graphiques interactifs plotly
+
+---
+
+## Des graphiques pour des rapports html
+
+- le package `plotly` est porté sur plusieurs logiciels dont `R` et `Python`
+- le fonctionnement - à la syntaxe près évidemment - est proche de celui de `ggplot2`
+- à partir des sorties, il est possible d'enregistrer des images figées
+- le passage de la souris sur le graphique permet de faire apparaître les informations utilisées pour le graphique, on peut zoomer sur certaines parties et sauver le zoom
+- possibilité de réaliser des animations
+- source assez complète : <a href="plotly.com/r/">plotly.com</a>
+
+---
+## Les graphiques de base
+.pull-left[
+- les fonctions changent et l'empilement se fait avec le pipe `%>%`
+
+```{r, eval = FALSE}
+library(plotly)
+penguins %>% 
+  plot_ly(x = ~bill_d, y = ~bill_l, type = "scatter", mode = "markers") %>% 
+  layout(
+    title = "longueur et profondeur de bec"
+    xaxis = list(title = "profondeur de bec"),
+    yaxis = list(title = "longueur de bec"))
+```
+]
+.pull-right[
+```{r, echo = FALSE}
+p <- penguins %>% 
+  plot_ly(x = ~bill_d, y = ~bill_l, type = "scatter", mode = "markers")
+htmltools::save_html(p, file="scatter.html")  
+```
+
+<div align="center">
+<iframe src="scatter.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+</div>
+]
+---
+## Les avantages de l'interactivité
+
+- ce type de représentation peut vraiment être utile en phase exploratoire, prenons l'exemple des données de covid
+```{r, echo=FALSE,  warning=FALSE}
+covid <- read.table(
+  "owid-covid-data.csv",
+  header = T,
+  sep = ",",
+  stringsAsFactors = TRUE
+) %>%  
+  mutate(date = ymd(date)) %>% 
+  filter(
+    location %in% c("France","United States", "Mexico","Portugal", "Spain", "United Kingdom",  "Brazil", "South Africa"),
+  (ymd(20201101)<=date) & (ymd(20210201)>=date)
+  ) %>% 
+  droplevels()
+p <- covid %>% plot_ly(type = "scatter", mode = "lines") %>% 
+  add_trace( x = ~date, y=~new_cases, color = ~location, fill = "tozeroy") %>% 
+  layout(
+    title = 'COVID-19', 
+    xaxis = list(title = 'Date'), 
+    yaxis = list(title = 'Number of new cases'), 
+    legend = list(title=list(text='<b> Countries </b>')),
+    annotations = list(x = 1, y = -.1, text = "Source: https://ourworldindata.org/", 
+      showarrow = F, xref='paper', yref='paper', 
+      xanchor='right', yanchor='auto', xshift=0, yshift=0,
+      font=list(size=7))
+    )
+htmltools::save_html(p, file="covid.html")  
+```
+
+<iframe src="covid.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+
+- code correspondant
+```{r, echo=TRUE, eval = FALSE,  warning=FALSE}
+covid <- read.table(
+  "owid-covid-data.csv",
+  header = T,
+  sep = ",",
+  stringsAsFactors = TRUE
+) %>%
+  mutate(date = ymd(date)) %>%
+  filter(
+    location %in% c(
+      "France",
+      "United States",
+      "Mexico",
+      "Portugal",
+      "Spain",
+      "United Kingdom",
+      "Brazil",
+      "South Africa"
+    ),
+    (ymd(20201101) <= date) & (ymd(20210201) >= date)
+  ) %>%
+  droplevels()
+covid %>% plot_ly(type = "scatter", mode = "lines") %>%
+  add_trace(
+    x = ~ date,
+    y =  ~ new_cases,
+    color = ~ location,
+    fill = "tozeroy"
+  ) %>%
+  layout(
+    title = 'COVID-19',
+    xaxis = list(title = 'Date'),
+    yaxis = list(title = 'Number of new cases'),
+    legend = list(title = list(text = '<b> Countries </b>')),
+    annotations = list(
+      x = 1,
+      y = -.1,
+      text = "Source: https://ourworldindata.org/",
+      showarrow = F,
+      xref = 'paper',
+      yref = 'paper',
+      xanchor = 'right',
+      yanchor = 'auto',
+      xshift = 0,
+      yshift = 0,
+      font = list(size = 7)
+    )
+  )
+```
+
+---
+
+## De ggplot à plotly
+.pull-left[
+- une fonction permet de transcrire un objet créé par `ggplot()` en un objet pouvant sortir de `plot_ly()`
+
+```{r }
+p <- penguins %>% ggplot() +
+  aes(x = bill_d, y = bill_l, color = island) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "lien entre les variables longueur et profondeur de bec",
+       x = "profondeur de bec",
+       y = "longueur de bec",
+       color = "île")
+
+```
+]
+.pull-right[
+```{r, eval =FALSE}
+p  %>%  ggplotly()
+```
+
+```{r, eval =TRUE, echo = FALSE}
+p <- p  %>%  ggplotly()
+htmltools::save_html(p, file="ggplotly.html")  
+```
+
+<iframe src="ggplotly.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+]
+---
+## Facilitation de la visualisation dans l'espace
+- dans des cas très précis, on peut être amené à rechercher une vision en 3 dimensions
+- prenons un exemple, ici on recherche à optimiser l'utilisation de coproduits dans un mélange commercialisable
+
+<iframe src="optim2.html" width="800" height="400" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+
+---
+
+## Un autre exemple en 3d
+
+- une illustration de l'ACP
+```{r, cache = TRUE, fig.align='center', out.width = '900px', echo=F}
+x <- c(-8.5, -7.5, -4.0, -1.0,  2.0,  2.5,  5.5,  6.0,  8.0)
+y <- c(-3.0,  6.5,  6.0, -7.0,  1.5,  2.5,  0.0, -4.5, -8.0) # cov(x,y) = -15
+Pxoy <- y - cov(x,y)/var(x)*x # y - Px(y)
+
+u <- c(2.5,3,4,8.5,4,2.5,3,3.5,3.5) # cov(u,x) = 0
+v <- u - cov(u,Pxoy)/var(Pxoy)*Pxoy
+z <- -15/cov(Pxoy,y)*Pxoy
+z <- z +  sqrt((20.625-var(z))/var(v))*v
+
+n <- length(x)
+X <- cbind(x,y,z)
+G <- matrix(apply(X, 2, FUN = mean))
+Y <- X- matrix(rep(1,n), ncol = 1)%*%t(G)
+M <- round(t(Y)%*%Y, 0)
+#eigen(M)$vectors%*%diag(c(405,225,45))%*%t(eigen(M)$vectors)
+g <- as.numeric(G)
+xl <- c(min(x),max(x))
+yl <- c(min(y),max(y))
+Q = matrix(c(2,2,1,-2,1,2,1,-2,2), byrow = T, ncol = 3)
+cte <- sum(G*Q[,3])/2
+zplan <- function(x,y){
+  return(-.5*y-x+cte)
+} 
+t <- c(-10,10)
+zl <- outer(t,t, zplan)
+
+Proj <- 1/3*Y%*%Q
+Proj <- cbind(Proj[,-3],0)
+Proj <- 1/3*Proj%*%t(Q)
+Proj <- as.data.frame(Proj)
+
+# representation du nuage
+coincoin <- plot_ly(x = x, y = y, z = z, autosize = F, width = 800) %>%
+  add_trace(type = "scatter3d",mode="markers+text",marker = list(size = 3, color = "blue", symbol = 104), text = as.character(1:n), name = "Vraies positions")
+# ajout du centre de masse
+coincoin <- coincoin %>% 
+  add_trace(x=g[1],y=g[2],z=g[3],  type = "scatter3d",mode="markers+text",marker = list(size = 3, color = "red", symbol = 104), text = c("Centre de masse"), name = "Centre de masse")
+
+# ajout du nouveau repere
+coincoin <- coincoin %>% 
+  add_trace(x = g[1]+c(0,Q[1,1]),y = g[2]+c(0,Q[2,1]),z = g[3]+c(0,Q[3,1]), type = 'scatter3d', mode = 'lines',
+            line = list(width = 3, color = "red"), name = "1er vecteur principal") %>% 
+  add_trace(x = g[1]+c(0,Q[1,2]),y = g[2]+c(0,Q[2,2]),z = g[3]+c(0,Q[3,2]), type = 'scatter3d', mode = 'lines',
+            line = list(width = 3, color = "orange"), name = "2e vecteur principal") %>% 
+  add_trace(x = g[1]+c(0,Q[1,3]),y = g[2]+c(0,Q[2,3]),z = g[3]+c(0,Q[3,3]), type = 'scatter3d', mode = 'lines',
+            line = list(width = 3, color = "yellow"), name = "3e vecteur principal") 
+#ajout du nouveau plan
+coincoin <- coincoin %>% 
+  add_trace(x=t,y=t,z=zl,type = "surface", opacity = .3, showscale = FALSE)
+#ajout des projetes
+coincoin <- coincoin %>% 
+  add_trace(x=Proj[,1]+g[1], y=Proj[,2]+g[2], z= Proj[,3]+g[3], type = "scatter3d", mode="markers+text",marker = list(size = 3, color = "black", symbol = 104), text = 1:n, name = "Points projetés") %>% 
+  layout(legend = list(orientation = 'h'))
+
+htmltools::save_html(coincoin, file="coincoin.html")
+```
+
+<iframe src="coincoin.html" width="1000" height="900" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+
+---
+## Une petite animation pour finir
+.pull-left[   
+- outil pratique pour marquer une évolution temporelle, ou alors pour de la sensibilité aux paramètres
+
+```{r, eval = FALSE}
+penguins %>%
+  plot_ly(
+    x = ~ bill_d,
+    y = ~ bill_l,
+    frame = ~ year,
+    type = "scatter",
+    mode = "markers",
+    showlegend = FALSE
+  ) %>%
+  layout(
+    title = "longueur de bec en fonction de la profondeur",
+    xaxis = list(title = "profondeur de bec"),
+    yaxis = list(title = "longueur de bec")
+  )
+```
+]
+.pull-right[
+```{r, echo = FALSE}
+p <- penguins %>% 
+  plot_ly(x = ~bill_d, y = ~bill_l, frame = ~year, type = "scatter", mode = "markers", showlegend = FALSE) %>% 
+  layout(
+    title = "longueur de bec en fonction de la profondeur",
+    xaxis = list(title = "profondeur de bec"),
+    yaxis = list(title = "longueur de bec"))
+htmltools::save_html(p, file="time.html")  
+```
+
+<iframe src="time.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
+]
+---
+class: inverse, middle, center
+# Covariables spatiales
+
+---
+## Le problème des cartes
+.pull-left[
+- les objets qui permettent de définir des contours sont assez complexes]
+.pull-right[
+```{r, eval=FALSE}
+world_map <- map_data("world")
+ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill="dodgerblue4", colour = "white")
+```
+]
+
+```{r, fig.width = 14}
+world_map <- map_data("world")
+ggplot(world_map, aes(x = long, y = lat, group = group)) +
+  geom_polygon(fill="dodgerblue4", colour = "white")
+```
+
+---
+## Utilisation des cartes
+- considérons les données suivantes 
+```{r}
+arrests <- USArrests 
+head(arrests)
+```
+- pour représenter géographiquement ces informations
+```{r,fig.width = 14}
+states_map <- map_data("state")
+arrests <- arrests %>% 
+  mutate(region = tolower(rownames(USArrests)))
+arrests_map <- left_join(states_map, arrests, by = "region")
+p <- arrests_map %>% ggplot() +
+  aes(x = long, y= lat, group = region) +
+  geom_polygon(aes(fill = Assault), color = "white") 
+```
+
+---
+
+## Représentation spatiale du nombre d'arrestations aux USA
+
+```{r,fig.width = 14}
+p
+```
+
+---
+## Le problème de la projection 
+
+- il est possible de changer de méthode de projection
+```{r, ,fig.width = 14}
+p + coord_map(projection = "orthographic")
+```
+
+---
+## Plusieurs choix possibles 
+
+- il existe de nombreuses versions, certains paquets développent les possibilités suivant l'importance de la fidélité de la représentation
+```{r, ,fig.width = 14}
+p + coord_map(projection = "conic", lat0 = 30)
+```
+
+---
+## Rajouter les noms
+```{r,fig.width = 14}
+region.lab.data <- arrests_map %>%
+  group_by(region) %>%
+  summarise(long = mean(long), lat = mean(lat))
+library(ggrepel)
+p + geom_label_repel(data = region.lab.data, aes(x = long, y = lat, label = region), size = 4 , colour = "white", fill = "dodgerblue") +
+  coord_map()
+```
+
+---
+
+## Placer des villes
+.pull-left[
+- on peut aller chercher des packages spécifiques ou les données brutes
+```{r}
+cities <-
+  read.table(
+    "us-state-capitals.csv",
+    sep = ",",
+    stringsAsFactors = TRUE,
+    header = TRUE
+  ) %>% filter(!name %in% c("Alaska", "Hawaii"))
+head(cities)
+```
+]
+.pull-right[
+```{r}
+p_cities <- p +
+  geom_point(data = cities, aes(x = longitude, y  = latitude, group = name))  +
+  geom_label_repel(
+    data = cities,
+    aes(
+      x = longitude,
+      y  = latitude,
+      group = name,
+      label = paste(paste0(description,","), "\n", str_to_upper(name))
+    ),
+    size = 4 ,
+    colour = "white",
+    fill = "dodgerblue"
+  ) +
+  coord_map()
+```
+]
+---
+
+## Représentation spatiale du nombre d'arrestations aux USA avec capitales des états
+
+```{r, ,fig.width = 14, echo=FALSE}
+p_cities 
+```
