@@ -4,7 +4,7 @@
     <title>Visualisation des données</title>
     <meta charset="utf-8" />
     <meta name="author" content="JL Marchand" />
-    <meta name="date" content="2023-11-07" />
+    <meta name="date" content="2023-11-08" />
     <script src="VizuXa_files/header-attrs-2.23/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="my_own.css" type="text/css" />
@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 ### JL Marchand
 ]
 .date[
-### 2023-11-07
+### 2023-11-08
 ]
 
 ---
@@ -1035,7 +1035,7 @@ p &lt;- penguins %&gt;% ggplot() +
   aes(x = bill_d, y = bill_l, color = island) +
   geom_point() +
   geom_smooth(method = "lm") +
-  labs(title = "lien entre les variables longueur et profondeur de bec",
+  labs(
        x = "profondeur de bec",
        y = "longueur de bec",
        color = "île")
@@ -1182,9 +1182,50 @@ p + coord_map(projection = "conic", lat0 = 30)
 ```
 
 ![](VizuXa_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+---
+## A quoi sert l'argument de groupe dans l'aesthetics ?
+- comme pour le graphique d'interaction, il permet de définir l'ensemble des points à relier
+- le tableau créé ci-dessous définit un ensemble de points définissant les contours des départements
+
+```r
+france &lt;- map_data("france")
+head(france)
+fr_map &lt;- france %&gt;%
+  ggplot() +
+  aes(x = long, y = lat) +
+  coord_quickmap()
+fr_map1 &lt;- fr_map + geom_point(size = .001)
+fr_map2 &lt;- fr_map + geom_polygon()
+fr_map3 &lt;-
+  fr_map + geom_polygon(aes(group = group),
+                        color = 'black',
+                        fill = 'white')
+```
+
+```
+      long      lat group order region subregion
+1 2.557093 51.09752     1     1   Nord      &lt;NA&gt;
+2 2.579995 51.00298     1     2   Nord      &lt;NA&gt;
+3 2.609101 50.98545     1     3   Nord      &lt;NA&gt;
+4 2.630782 50.95073     1     4   Nord      &lt;NA&gt;
+5 2.625894 50.94116     1     5   Nord      &lt;NA&gt;
+6 2.597699 50.91967     1     6   Nord      &lt;NA&gt;
+```
+
+---
+## Comparons
+- le premier graphe représente des points très proches les uns des autres, le second cherche à créer un polygone avec tous les points, enfin le dernier sait quels polygones tracer
+
+```r
+fr_map1+fr_map2+fr_map3
+```
+
+![](VizuXa_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+
 
 ---
 ## Rajouter les noms
+
 
 ```r
 region.lab.data &lt;- arrests_map %&gt;%
@@ -1195,7 +1236,7 @@ p + geom_label_repel(data = region.lab.data, aes(x = long, y = lat, label = regi
   coord_map()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1248,7 +1289,7 @@ p_cities &lt;- p +
 
 ## Représentation spatiale du nombre d'arrestations aux USA avec capitales des états
 
-![](VizuXa_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1361,19 +1402,23 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 world %&gt;%  filter(brk_name == "Germany") %&gt;% ggplot() + geom_sf()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
 
 ---
 
 ## Le changement de système de coordonnées
-
+.pull-left[
+- l'argument `crs` correspond à une désignation du système de coordonnées utilisées en faisant référence à un choix de projection (Coordinate Reference System), on peut redéfinir le choix de la projection
+- pour plus d'info sur le choix fait ici : https://epsg.io/32631
+lorsque l'on renseigne un entier, cela fait référence à la nomenclature EPSG de différents systèmes de coordonnées]
+.pull-right[
 
 ```r
 world %&gt;%  filter(brk_name == "Germany") %&gt;% st_transform( crs = 32631) %&gt;% ggplot() + geom_sf()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
-
+![](VizuXa_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
+]
 ---
 
 ## Importation de shape file
@@ -1391,9 +1436,9 @@ rm_shape %&gt;% ggplot(aes(fill = nom)) +
 
 ---
 
-## Rennes Métropole
+## Environs de Rennes
 
-![](VizuXa_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-77-1.png)&lt;!-- --&gt;
 
 ```
 Reading layer `limites-communales-referentielles-de-rennes-metropole-polygones' from data source `/home/marchand/Nextcloud2/AgroCampus/M2Data/rennes-metropole' 
@@ -1404,6 +1449,28 @@ Dimension:     XY
 Bounding box:  xmin: -2.137153 ymin: 47.76211 xmax: -1.283921 ymax: 48.4102
 Geodetic CRS:  WGS 84
 ```
+
+---
+## Les jeunes dans Rennes Métropole
+
+- on veut représenter les proportions des 15-24 ans dans chaque commune de Rennes Métropole à partir des données suivantes :
+https://www.data.gouv.fr/fr/datasets/population-a-rennes-metropole-par-sexe-age-et-nationalite-par-commune-2014/
+
+
+```r
+rm_pops &lt;- read.table("population-par-sexe-age-et-nationalite-par-commune-2014.csv", header = TRUE, sep = ",")
+rm15_24 &lt;- rm_pops %&gt;% group_by(nom, age4) %&gt;%   summarize(pop = sum(population)) %&gt;% ungroup(age4) %&gt;%
+  mutate(population = pop/sum(pop)) %&gt;% 
+  filter(age4 == "15 à 24 ans")
+left_join(rm_shape, rm15_24) %&gt;% ggplot(aes(fill = population)) + geom_sf() + 
+  geom_label_repel(aes(label = ifelse(population &gt; 0, nom, ''),geometry = geometry), stat = 'sf_coordinates', color = 'white', fill = "dodgerblue") + 
+  labs(x = 'longitude', y = 'latitude', title = "proportions des 15-24 ans", fill = 'proportions') + 
+    ylim(47.9,48.35) + xlim(2,1.4) 
+```
+---
+
+##  Représentation
+&lt;img src="VizuXa_files/figure-html/unnamed-chunk-79-1.png" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

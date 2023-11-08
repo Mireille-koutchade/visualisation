@@ -1,0 +1,689 @@
+nivgeo,codgeo,nom,age4,inatc,sexe,nb,population,inter_codegeo1,epci,libepci,code_departement,departement,region
+COM,35001,Acigné,25 à 54 ans,Étrangers,femmes,"38,612614993",39,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,55 ans ou plus,Français,femmes,"898,24362935",898,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,15 à 24 ans,Étrangers,hommes,"4,8265768741",5,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,55 ans ou plus,Étrangers,hommes,"3,8612614993",4,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,55 ans ou plus,Étrangers,femmes,"4,8265768741",5,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,moins de 15 à 24 ans ans,Étrangers,femmes,"8,6878383734",9,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,moins de 15 à 24 ans ans,Français,hommes,"671,20681605",671,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,moins de 15 à 24 ans ans,Français,femmes,"649,90040435",650,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,15 à 24 ans,Français,femmes,"329,17254282",329,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,moins de 15 à 24 ans ans,Étrangers,hommes,"12,549099873",13,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,55 ans ou plus,Français,hommes,"778,05820868",778,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,15 à 24 ans,Français,hommes,"391,91804218",392,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,25 à 54 ans,Français,hommes,"1282,0777647",1282,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,15 à 24 ans,Étrangers,femmes,"6,7572076238",7,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,25 à 54 ans,Français,femmes,"1293,1685314",1293,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35001,Acigné,25 à 54 ans,Étrangers,hommes,"24,132884371",24,35001,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,25 à 54 ans,Français,hommes,"135,74544948",136,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,25 à 54 ans,Étrangers,femmes,"3,0390772273",3,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,55 ans ou plus,Étrangers,hommes,"1,0130257424",1,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,55 ans ou plus,Français,femmes,"133,85573963",134,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,moins de 15 à 24 ans ans,Étrangers,hommes,0,0,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,moins de 15 à 24 ans ans,Français,femmes,"67,872724742",68,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,15 à 24 ans,Étrangers,femmes,0,0,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,55 ans ou plus,Français,hommes,"84,957032719",85,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,15 à 24 ans,Français,femmes,"34,442875242",34,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,15 à 24 ans,Français,hommes,"44,573132666",45,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,moins de 15 à 24 ans ans,Français,hommes,"57,742467318",58,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,25 à 54 ans,Étrangers,hommes,"3,0390772273",3,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,15 à 24 ans,Étrangers,hommes,0,0,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,55 ans ou plus,Étrangers,femmes,0,0,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,moins de 15 à 24 ans ans,Étrangers,femmes,"2,0260514848",2,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35022,Bécherel,25 à 54 ans,Français,femmes,"131,69334651",132,35022,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,55 ans ou plus,Étrangers,femmes,"6,165716016",6,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,moins de 15 à 24 ans ans,Français,hommes,"991,50773222",992,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,moins de 15 à 24 ans ans,Étrangers,hommes,"5,0007145475",5,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,25 à 54 ans,Français,femmes,"2248,0700994",2248,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,15 à 24 ans,Étrangers,femmes,"3,3328507661",3,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,55 ans ou plus,Français,femmes,"1673,9426161",1674,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,15 à 24 ans,Étrangers,hommes,"2,9907517037",3,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,15 à 24 ans,Français,hommes,"634,08697528",634,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,25 à 54 ans,Étrangers,hommes,"43,298534568",43,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,moins de 15 à 24 ans ans,Français,femmes,"950,12982003",950,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,moins de 15 à 24 ans ans,Étrangers,femmes,"6,2069189398",6,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,55 ans ou plus,Français,hommes,"1421,2656464",1421,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,25 à 54 ans,Français,hommes,"2067,8714784",2068,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,25 à 54 ans,Étrangers,femmes,"29,004106825",29,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,55 ans ou plus,Étrangers,hommes,"3,0185292373",3,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35024,Betton,15 à 24 ans,Français,femmes,"606,10750968",606,35024,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,moins de 15 à 24 ans ans,Étrangers,femmes,"7,9100083113",8,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,15 à 24 ans,Français,hommes,"200,5807251",201,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,15 à 24 ans,Français,femmes,"189,72842634",190,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,55 ans ou plus,Étrangers,femmes,"7,7491056372",8,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,55 ans ou plus,Étrangers,hommes,"4,9465147499",5,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,moins de 15 à 24 ans ans,Étrangers,hommes,"9,7149148458",10,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,15 à 24 ans,Étrangers,femmes,"8,7794440657",9,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,55 ans ou plus,Français,femmes,"372,46300744",372,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,55 ans ou plus,Français,hommes,"353,14794516",353,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,moins de 15 à 24 ans ans,Français,hommes,"468,8574642",469,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,moins de 15 à 24 ans ans,Français,femmes,"486,55006184",487,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,25 à 54 ans,Français,hommes,"786,03001841",786,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,25 à 54 ans,Étrangers,femmes,"20,662699088",21,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,25 à 54 ans,Français,femmes,"818,89977046",819,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,25 à 54 ans,Étrangers,hommes,"19,130662105",19,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35032,Bourgbarré,15 à 24 ans,Étrangers,hommes,"4,8492322442",5,35032,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,15 à 24 ans,Étrangers,femmes,2,2,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,25 à 54 ans,Français,femmes,445,445,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,55 ans ou plus,Français,femmes,200,200,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,25 à 54 ans,Français,hommes,441,441,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,15 à 24 ans,Français,femmes,102,102,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,moins de 15 à 24 ans ans,Étrangers,hommes,3,3,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,15 à 24 ans,Français,hommes,130,130,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,55 ans ou plus,Étrangers,hommes,2,2,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,moins de 15 à 24 ans ans,Français,hommes,284,284,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,25 à 54 ans,Étrangers,femmes,9,9,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,55 ans ou plus,Étrangers,femmes,2,2,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,15 à 24 ans,Étrangers,hommes,0,0,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,moins de 15 à 24 ans ans,Étrangers,femmes,7,7,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,55 ans ou plus,Français,hommes,197,197,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,moins de 15 à 24 ans ans,Français,femmes,266,266,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35039,Brécé,25 à 54 ans,Étrangers,hommes,7,7,35039,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,55 ans ou plus,Français,hommes,"1884,5088179",1885,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,25 à 54 ans,Étrangers,hommes,"121,25913975",121,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,15 à 24 ans,Français,hommes,"1710,2062661",1710,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,25 à 54 ans,Étrangers,femmes,"109,11828803",109,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,55 ans ou plus,Étrangers,femmes,"19,465306931",19,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,25 à 54 ans,Français,hommes,"3154,1658923",3154,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,moins de 15 à 24 ans ans,Étrangers,femmes,"41,362085552",41,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,moins de 15 à 24 ans ans,Français,femmes,"1565,9594872",1566,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,moins de 15 à 24 ans ans,Étrangers,hommes,"29,771224038",30,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,55 ans ou plus,Étrangers,hommes,"27,436683005",27,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,55 ans ou plus,Français,femmes,"2167,4124954",2167,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,15 à 24 ans,Étrangers,femmes,"48,619246565",49,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,15 à 24 ans,Étrangers,hommes,"82,620211542",83,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,15 à 24 ans,Français,femmes,"1519,3916925",1519,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,25 à 54 ans,Français,femmes,"3333,8468628",3334,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35047,Bruz,moins de 15 à 24 ans ans,Français,hommes,"1556,8563005",1557,35047,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,15 à 24 ans,Français,femmes,"1203,1377162",1203,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,25 à 54 ans,Étrangers,hommes,"155,23538581",155,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,15 à 24 ans,Étrangers,femmes,"57,849286626",58,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,moins de 15 à 24 ans ans,Français,hommes,"1318,8848793",1319,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,moins de 15 à 24 ans ans,Français,femmes,"1250,171407",1250,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,moins de 15 à 24 ans ans,Étrangers,hommes,"22,05477721",22,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,55 ans ou plus,Étrangers,femmes,"3,8356666155",4,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,25 à 54 ans,Français,hommes,"3021,2725806",3021,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,15 à 24 ans,Étrangers,hommes,"63,566195115",64,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,55 ans ou plus,Français,hommes,"2428,8746697",2429,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,25 à 54 ans,Français,femmes,"2868,0536631",2868,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,55 ans ou plus,Français,femmes,"2909,9558862",2910,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,55 ans ou plus,Étrangers,hommes,"7,4752706055",7,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,15 à 24 ans,Français,hommes,"1755,5140791",1756,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,25 à 54 ans,Étrangers,femmes,"140,91217005",141,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35051,Cesson-Sévigné,moins de 15 à 24 ans ans,Étrangers,femmes,"26,206366679",26,35051,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,15 à 24 ans,Français,hommes,"618,92685579",619,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,moins de 15 à 24 ans ans,Français,femmes,"967,29228032",967,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,55 ans ou plus,Français,hommes,"1196,4590294",1196,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,15 à 24 ans,Français,femmes,"587,434615",587,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,55 ans ou plus,Étrangers,femmes,"16,262528418",16,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,25 à 54 ans,Étrangers,hommes,"89,42749827",89,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,55 ans ou plus,Étrangers,hommes,"13,213304339",13,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,moins de 15 à 24 ans ans,Étrangers,hommes,"36,541464861",37,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,moins de 15 à 24 ans ans,Français,hommes,"1024,2275378",1024,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,15 à 24 ans,Étrangers,hommes,"14,196896313",14,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,25 à 54 ans,Étrangers,femmes,"94,525946427",95,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,15 à 24 ans,Étrangers,femmes,"27,3773846",27,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,25 à 54 ans,Français,hommes,"2105,8005338",2106,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,55 ans ou plus,Français,femmes,"1522,9375309",1523,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,moins de 15 à 24 ans ans,Étrangers,femmes,"26,410200652",26,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35055,Chantepie,25 à 54 ans,Français,femmes,"2234,9663932",2235,35055,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,15 à 24 ans,Français,hommes,"413,82042879",414,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,15 à 24 ans,Étrangers,femmes,"10,852836283",11,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,15 à 24 ans,Français,femmes,"428,7757831",429,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,moins de 15 à 24 ans ans,Français,hommes,"611,16215362",611,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,55 ans ou plus,Français,femmes,"1235,4015002",1235,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,55 ans ou plus,Français,hommes,"1050,4561453",1050,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,moins de 15 à 24 ans ans,Étrangers,femmes,"16,472754992",16,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,25 à 54 ans,Étrangers,hommes,"55,290370235",55,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,moins de 15 à 24 ans ans,Étrangers,hommes,"17,563396111",18,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,25 à 54 ans,Français,femmes,"1404,4263346",1404,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,25 à 54 ans,Étrangers,femmes,"55,981537084",56,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,25 à 54 ans,Français,hommes,"1399,605168",1400,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,55 ans ou plus,Étrangers,hommes,"7,0539204626",7,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,moins de 15 à 24 ans ans,Français,femmes,"609,37727851",609,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,15 à 24 ans,Étrangers,hommes,"13,764651844",14,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35066,Chartres-de-Bretagne,55 ans ou plus,Étrangers,femmes,"2,9957408286",3,35066,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,25 à 54 ans,Étrangers,femmes,"9,9015401558",10,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,55 ans ou plus,Étrangers,femmes,0,0,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,15 à 24 ans,Français,femmes,"178,34889853",178,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,25 à 54 ans,Français,hommes,"745,41726135",745,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,15 à 24 ans,Étrangers,femmes,"1,9439813067",2,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,moins de 15 à 24 ans ans,Étrangers,hommes,"4,8749546383",5,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,15 à 24 ans,Étrangers,hommes,"3,9919084954",4,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,moins de 15 à 24 ans ans,Français,femmes,"371,46318594",371,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,25 à 54 ans,Français,femmes,"747,11313866",747,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,55 ans ou plus,Français,hommes,"510,21776175",510,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,55 ans ou plus,Français,femmes,"535,11931367",535,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,15 à 24 ans,Français,hommes,"195,52939405",196,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,25 à 54 ans,Étrangers,hommes,"11,888307747",12,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,moins de 15 à 24 ans ans,Français,hommes,"373,17312987",373,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,55 ans ou plus,Étrangers,hommes,"3,0537913134",3,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35076,Chavagne,moins de 15 à 24 ans ans,Étrangers,femmes,"3,9634325234",4,35076,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,15 à 24 ans,Français,hommes,"123,90310442",124,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,55 ans ou plus,Français,hommes,"240,12229539",240,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,55 ans ou plus,Français,femmes,"242,04327375",242,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,moins de 15 à 24 ans ans,Étrangers,femmes,"0,9604891816",1,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,15 à 24 ans,Étrangers,femmes,"0,9604891816",1,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,moins de 15 à 24 ans ans,Français,femmes,"218,03104421",218,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,25 à 54 ans,Étrangers,femmes,"5,7629350894",6,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,25 à 54 ans,Français,hommes,"410,12888053",410,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,55 ans ou plus,Étrangers,femmes,"1,9209783631",2,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,moins de 15 à 24 ans ans,Étrangers,hommes,"0,9604891816",1,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,55 ans ou plus,Étrangers,hommes,"1,9209783631",2,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,25 à 54 ans,Étrangers,hommes,"3,8419567262",4,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,15 à 24 ans,Français,femmes,"132,54750706",133,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,25 à 54 ans,Français,femmes,"440,86453434",441,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,15 à 24 ans,Étrangers,hommes,0,0,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35079,Chevaigné,moins de 15 à 24 ans ans,Français,hommes,"218,03104421",218,35079,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,moins de 15 à 24 ans ans,Étrangers,hommes,0,0,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,moins de 15 à 24 ans ans,Français,hommes,"281,81350626",282,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,15 à 24 ans,Étrangers,femmes,"0,9888193202",1,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,25 à 54 ans,Français,femmes,"453,86806798",454,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,25 à 54 ans,Étrangers,femmes,"4,9440966011",5,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,15 à 24 ans,Français,hommes,"144,36762075",144,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,55 ans ou plus,Étrangers,hommes,"0,9888193202",1,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,25 à 54 ans,Étrangers,hommes,"5,9329159213",6,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,15 à 24 ans,Français,femmes,"123,60241503",124,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,25 à 54 ans,Français,hommes,"452,87924866",453,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,moins de 15 à 24 ans ans,Étrangers,femmes,0,0,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,55 ans ou plus,Étrangers,femmes,"0,9888193202",1,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,55 ans ou plus,Français,femmes,"236,32781753",236,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,55 ans ou plus,Français,hommes,"233,36135957",233,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,moins de 15 à 24 ans ans,Français,femmes,"269,94767442",270,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35080,Cintré,15 à 24 ans,Étrangers,hommes,"0,9888193202",1,35080,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,moins de 15 à 24 ans ans,Étrangers,femmes,"1,8777506112",2,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,15 à 24 ans,Étrangers,hommes,"1,8777506112",2,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,25 à 54 ans,Français,hommes,"151,15892421",151,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,moins de 15 à 24 ans ans,Étrangers,hommes,"0,9388753056",1,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,25 à 54 ans,Français,femmes,"153,03667482",153,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,55 ans ou plus,Étrangers,femmes,0,0,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,55 ans ou plus,Français,femmes,"76,048899756",76,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,25 à 54 ans,Étrangers,hommes,"2,8166259169",3,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,55 ans ou plus,Étrangers,hommes,0,0,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,15 à 24 ans,Français,femmes,"36,616136919",37,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,moins de 15 à 24 ans ans,Français,hommes,"104,21515892",104,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,15 à 24 ans,Français,hommes,"54,454767726",54,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,15 à 24 ans,Étrangers,femmes,0,0,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,55 ans ou plus,Français,hommes,"82,621026895",83,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,moins de 15 à 24 ans ans,Français,femmes,"100,4596577",100,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35081,Clayes,25 à 54 ans,Étrangers,femmes,"1,8777506112",2,35081,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,25 à 54 ans,Étrangers,femmes,"13,243338621",13,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,15 à 24 ans,Français,femmes,"176,19050906",176,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,25 à 54 ans,Français,femmes,"649,38098196",649,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,moins de 15 à 24 ans ans,Étrangers,hommes,"1,0520225802",1,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,moins de 15 à 24 ans ans,Français,hommes,"351,43808693",351,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,55 ans ou plus,Étrangers,hommes,"5,2605395008",5,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,25 à 54 ans,Français,hommes,"678,01025455",678,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,15 à 24 ans,Étrangers,hommes,"0,9903510371",1,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,moins de 15 à 24 ans ans,Français,femmes,"343,47121064",343,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,25 à 54 ans,Étrangers,hommes,"10,27312187",10,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,55 ans ou plus,Étrangers,femmes,"2,0520225802",2,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,15 à 24 ans,Français,hommes,"179,99751363",180,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,moins de 15 à 24 ans ans,Étrangers,femmes,"5,053297918",5,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,15 à 24 ans,Étrangers,femmes,"0,9903510371",1,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,55 ans ou plus,Français,hommes,"348,58423231",349,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35088,Corps-Nuds,55 ans ou plus,Français,femmes,"409,01216576",409,35088,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,15 à 24 ans,Français,hommes,301,301,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,25 à 54 ans,Étrangers,hommes,22,22,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,55 ans ou plus,Étrangers,femmes,3,3,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,55 ans ou plus,Français,hommes,475,475,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,55 ans ou plus,Français,femmes,507,507,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,25 à 54 ans,Français,hommes,1116,1116,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,25 à 54 ans,Étrangers,femmes,24,24,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,moins de 15 à 24 ans ans,Étrangers,femmes,9,9,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,15 à 24 ans,Étrangers,femmes,5,5,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,moins de 15 à 24 ans ans,Étrangers,hommes,3,3,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,15 à 24 ans,Étrangers,hommes,6,6,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,moins de 15 à 24 ans ans,Français,femmes,637,637,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,moins de 15 à 24 ans ans,Français,hommes,603,603,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,15 à 24 ans,Français,femmes,278,278,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,25 à 54 ans,Français,femmes,1146,1146,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35120,Gévezé,55 ans ou plus,Étrangers,hommes,4,4,35120,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,55 ans ou plus,Français,hommes,565,565,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,55 ans ou plus,Étrangers,femmes,2,2,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,25 à 54 ans,Français,femmes,778,778,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,moins de 15 à 24 ans ans,Étrangers,hommes,8,8,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,55 ans ou plus,Français,femmes,664,664,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,15 à 24 ans,Français,femmes,245,245,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,15 à 24 ans,Étrangers,hommes,8,8,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,moins de 15 à 24 ans ans,Français,femmes,378,378,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,15 à 24 ans,Étrangers,femmes,4,4,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,25 à 54 ans,Étrangers,femmes,31,31,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,55 ans ou plus,Étrangers,hommes,2,2,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,moins de 15 à 24 ans ans,Français,hommes,420,420,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,moins de 15 à 24 ans ans,Étrangers,femmes,7,7,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,15 à 24 ans,Français,hommes,210,210,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,25 à 54 ans,Français,hommes,783,783,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35131,L'Hermitage,25 à 54 ans,Étrangers,hommes,22,22,35131,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,moins de 15 à 24 ans ans,Étrangers,hommes,"1,0435874211",1,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,55 ans ou plus,Français,femmes,"112,70744148",113,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,15 à 24 ans,Français,femmes,"58,440895583",58,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,moins de 15 à 24 ans ans,Français,hommes,"180,49706226",180,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,moins de 15 à 24 ans ans,Français,femmes,"188,88932322",189,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,moins de 15 à 24 ans ans,Étrangers,femmes,0,0,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,55 ans ou plus,Étrangers,femmes,"1,0435874211",1,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,55 ans ou plus,Français,hommes,"118,88184281",119,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,25 à 54 ans,Français,femmes,"260,80973209",261,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,15 à 24 ans,Étrangers,hommes,"1,0435874211",1,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,15 à 24 ans,Français,hommes,"49,048608793",49,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,15 à 24 ans,Étrangers,femmes,"3,1307622634",3,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,55 ans ou plus,Étrangers,hommes,"1,0435874211",1,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,25 à 54 ans,Étrangers,hommes,"2,0871748423",2,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,25 à 54 ans,Étrangers,femmes,"5,2179371057",5,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35058,La Chapelle-Chaussée,25 à 54 ans,Français,hommes,"269,11486986",269,35058,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,15 à 24 ans,Étrangers,femmes,"12,798766562",13,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,55 ans ou plus,Étrangers,hommes,"4,9226025237",5,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,moins de 15 à 24 ans ans,Étrangers,hommes,"19,690410095",20,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,25 à 54 ans,Français,femmes,"967,79906532",968,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,25 à 54 ans,Étrangers,hommes,"51,195066247",51,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,55 ans ou plus,Étrangers,femmes,"2,3023508984",2,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,55 ans ou plus,Français,femmes,"595,72736034",596,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,25 à 54 ans,Étrangers,femmes,"50,210545742",50,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,15 à 24 ans,Étrangers,hommes,"10,829725552",11,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,15 à 24 ans,Français,femmes,"238,26937131",238,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,55 ans ou plus,Français,hommes,"509,99703062",510,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,moins de 15 à 24 ans ans,Français,hommes,"563,14572871",563,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,25 à 54 ans,Français,hommes,"919,55756059",920,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,moins de 15 à 24 ans ans,Français,femmes,"523,76490852",524,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,15 à 24 ans,Français,hommes,"243,19197383",243,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35059,La Chapelle-des-Fougeretz,moins de 15 à 24 ans ans,Étrangers,femmes,"25,597533123",26,35059,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,55 ans ou plus,Français,femmes,"326,74347826",327,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,55 ans ou plus,Étrangers,hommes,"0,9695652174",1,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,25 à 54 ans,Français,femmes,"380,06956522",380,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,25 à 54 ans,Français,hommes,"375,22173913",375,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,55 ans ou plus,Étrangers,femmes,0,0,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,moins de 15 à 24 ans ans,Étrangers,hommes,"2,9086956522",3,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,25 à 54 ans,Étrangers,hommes,"11,634782609",12,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,15 à 24 ans,Français,femmes,"92,108695652",92,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,moins de 15 à 24 ans ans,Étrangers,femmes,"3,8782608696",4,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,15 à 24 ans,Étrangers,hommes,"0,9695652174",1,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,moins de 15 à 24 ans ans,Français,hommes,"190,03478261",190,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,55 ans ou plus,Français,hommes,"309,29130435",309,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,25 à 54 ans,Étrangers,femmes,"6,7869565217",7,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,moins de 15 à 24 ans ans,Français,femmes,"180,33913043",180,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,15 à 24 ans,Étrangers,femmes,"2,9086956522",3,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35065,La Chapelle-Thouarault,15 à 24 ans,Français,hommes,"123,13478261",123,35065,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,15 à 24 ans,Étrangers,femmes,"3,9350801721",4,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,moins de 15 à 24 ans ans,Français,femmes,"556,81384435",557,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,15 à 24 ans,Français,hommes,"259,73152131",260,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,25 à 54 ans,Français,femmes,"1059,5203363",1060,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,55 ans ou plus,Étrangers,femmes,"3,9350801721",4,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,moins de 15 à 24 ans ans,Étrangers,hommes,"8,8539303872",9,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,55 ans ou plus,Étrangers,hommes,"4,9188502151",5,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,15 à 24 ans,Étrangers,hommes,"2,9513101291",3,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,25 à 54 ans,Étrangers,femmes,"17,707860774",18,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,55 ans ou plus,Français,femmes,"618,80758702",619,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,15 à 24 ans,Français,femmes,"279,39069222",279,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,25 à 54 ans,Français,hommes,"1038,8773954",1039,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,moins de 15 à 24 ans ans,Français,hommes,"600,09972624",600,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,55 ans ou plus,Français,hommes,"553,86253422",554,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,25 à 54 ans,Étrangers,hommes,"18,691630817",19,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35139,Laillé,moins de 15 à 24 ans ans,Étrangers,femmes,"5,9026202581",6,35139,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,15 à 24 ans,Étrangers,femmes,0,0,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,25 à 54 ans,Français,hommes,"195,36225597",195,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,moins de 15 à 24 ans ans,Étrangers,femmes,"0,9967462039",1,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,moins de 15 à 24 ans ans,Étrangers,hommes,0,0,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,15 à 24 ans,Français,hommes,"36,879609544",37,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,55 ans ou plus,Étrangers,femmes,0,0,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,25 à 54 ans,Français,femmes,"180,41106291",180,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,moins de 15 à 24 ans ans,Français,femmes,"104,65835141",105,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,55 ans ou plus,Français,hommes,"121,60303688",122,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,55 ans ou plus,Français,femmes,"130,57375271",131,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,moins de 15 à 24 ans ans,Français,hommes,"114,62581345",115,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,15 à 24 ans,Étrangers,hommes,"0,9967462039",1,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,55 ans ou plus,Étrangers,hommes,0,0,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,25 à 54 ans,Étrangers,femmes,"1,9934924078",2,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,25 à 54 ans,Étrangers,hommes,0,0,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35144,Langan,15 à 24 ans,Français,femmes,"30,899132321",31,35144,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,moins de 15 à 24 ans ans,Français,hommes,"803,86780097",804,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,15 à 24 ans,Français,hommes,"607,92600376",608,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,25 à 54 ans,Étrangers,hommes,"96,969511725",97,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,55 ans ou plus,Étrangers,femmes,"9,506814875",10,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,25 à 54 ans,Français,femmes,"1623,268265",1623,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,moins de 15 à 24 ans ans,Étrangers,femmes,"28,520444625",29,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,moins de 15 à 24 ans ans,Français,femmes,"777,15018404",777,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,25 à 54 ans,Français,hommes,"1584,0671",1584,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,25 à 54 ans,Étrangers,femmes,"82,709289413",83,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,15 à 24 ans,Français,femmes,"582,13284471",582,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,moins de 15 à 24 ans ans,Étrangers,hommes,"29,471126113",29,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,15 à 24 ans,Étrangers,hommes,"11,457445489",11,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,55 ans ou plus,Français,femmes,"1032,6225696",1033,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,55 ans ou plus,Français,hommes,"859,85947346",860,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,15 à 24 ans,Étrangers,femmes,"13,309540825",13,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35240,Le Rheu,55 ans ou plus,Étrangers,hommes,"16,161585288",16,35240,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,moins de 15 à 24 ans ans,Français,femmes,"170,43946984",170,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,moins de 15 à 24 ans ans,Français,hommes,"185,15283938",185,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,15 à 24 ans,Étrangers,femmes,0,0,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,55 ans ou plus,Français,femmes,"144,03258948",144,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,25 à 54 ans,Étrangers,hommes,"5,877223098",6,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,25 à 54 ans,Étrangers,femmes,"3,918148732",4,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,55 ans ou plus,Français,hommes,"132,25783149",132,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,55 ans ou plus,Étrangers,hommes,"1,959074366",2,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,15 à 24 ans,Étrangers,hommes,"0,979537183",1,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,55 ans ou plus,Étrangers,femmes,0,0,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,25 à 54 ans,Français,femmes,"317,41067087",317,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,15 à 24 ans,Français,hommes,"92,117118781",92,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,moins de 15 à 24 ans ans,Étrangers,femmes,"0,979537183",1,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,25 à 54 ans,Français,hommes,"316,43113369",316,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,moins de 15 à 24 ans ans,Étrangers,hommes,0,0,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35351,Le Verger,15 à 24 ans,Français,femmes,"74,444825908",74,35351,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,55 ans ou plus,Étrangers,hommes,"1,001344086",1,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,moins de 15 à 24 ans ans,Français,hommes,"105,14112903",105,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,55 ans ou plus,Étrangers,femmes,"1,001344086",1,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,15 à 24 ans,Français,hommes,"36,048387097",36,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,55 ans ou plus,Français,hommes,"86,115591398",86,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,55 ans ou plus,Français,femmes,"81,108870968",81,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,moins de 15 à 24 ans ans,Étrangers,hommes,"2,002688172",2,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,moins de 15 à 24 ans ans,Étrangers,femmes,0,0,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,25 à 54 ans,Français,femmes,"157,21102151",157,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,25 à 54 ans,Étrangers,hommes,"2,002688172",2,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,15 à 24 ans,Étrangers,hommes,0,0,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,moins de 15 à 24 ans ans,Français,femmes,"96,129032258",96,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,15 à 24 ans,Français,femmes,"25,033602151",25,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,25 à 54 ans,Français,hommes,"150,2016129",150,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,15 à 24 ans,Étrangers,femmes,0,0,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35180,Miniac-sous-Bécherel,25 à 54 ans,Étrangers,femmes,"2,002688172",2,35180,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,55 ans ou plus,Français,femmes,504,504,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,25 à 54 ans,Étrangers,hommes,15,15,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,25 à 54 ans,Français,femmes,660,660,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,15 à 24 ans,Étrangers,femmes,3,3,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,55 ans ou plus,Étrangers,hommes,2,2,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,25 à 54 ans,Étrangers,femmes,18,18,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,25 à 54 ans,Français,hommes,563,563,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,moins de 15 à 24 ans ans,Français,hommes,329,329,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,moins de 15 à 24 ans ans,Français,femmes,274,274,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,15 à 24 ans,Français,hommes,220,220,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,15 à 24 ans,Français,femmes,191,191,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,55 ans ou plus,Français,hommes,473,473,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,moins de 15 à 24 ans ans,Étrangers,femmes,6,6,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,moins de 15 à 24 ans ans,Étrangers,hommes,6,6,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,15 à 24 ans,Étrangers,hommes,0,0,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35189,Montgermont,55 ans ou plus,Étrangers,femmes,3,3,35189,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,15 à 24 ans,Français,femmes,"388,98160108",389,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,25 à 54 ans,Étrangers,hommes,"26,650800772",27,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,55 ans ou plus,Français,hommes,"1072,2605855",1072,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,moins de 15 à 24 ans ans,Étrangers,hommes,"10,857733648",11,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,moins de 15 à 24 ans ans,Français,hommes,"634,77409539",635,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,15 à 24 ans,Étrangers,hommes,0,0,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,25 à 54 ans,Français,hommes,"1330,617454",1331,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,15 à 24 ans,Étrangers,femmes,"6,9094668669",7,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,55 ans ou plus,Français,femmes,"1284,1528833",1284,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,55 ans ou plus,Étrangers,hommes,"5,9224001716",6,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,25 à 54 ans,Étrangers,femmes,"50,340401459",50,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,15 à 24 ans,Français,hommes,"421,51614045",422,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,moins de 15 à 24 ans ans,Étrangers,femmes,"10,857733648",11,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,25 à 54 ans,Français,femmes,"1333,6044284",1334,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,moins de 15 à 24 ans ans,Français,femmes,"648,58014193",649,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35196,Mordelles,55 ans ou plus,Étrangers,femmes,"1,9741333905",2,35196,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,25 à 54 ans,Français,hommes,"588,22842684",588,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,55 ans ou plus,Étrangers,femmes,"2,8393148108",3,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,15 à 24 ans,Français,hommes,"167,08862999",167,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,25 à 54 ans,Étrangers,hommes,"5,7549125532",6,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,moins de 15 à 24 ans ans,Français,hommes,"294,76290174",295,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,moins de 15 à 24 ans ans,Français,femmes,"309,60519874",310,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,15 à 24 ans,Étrangers,hommes,"1,0560134735",1,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,moins de 15 à 24 ans ans,Étrangers,femmes,0,0,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,55 ans ou plus,Français,femmes,"360,71326488",361,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,15 à 24 ans,Français,femmes,"151,41091582",151,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,moins de 15 à 24 ans ans,Étrangers,hommes,"0,972025493",1,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,25 à 54 ans,Français,femmes,"592,49016376",592,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,55 ans ou plus,Français,hommes,"358,37184142",358,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,55 ans ou plus,Étrangers,hommes,"2,6780186707",3,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,15 à 24 ans,Étrangers,femmes,"1,0560134735",1,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35204,Nouvoitou,25 à 54 ans,Étrangers,femmes,"8,9723583385",9,35204,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,15 à 24 ans,Français,femmes,"417,8610245",418,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,15 à 24 ans,Étrangers,femmes,"7,1478538395",7,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,55 ans ou plus,Français,hommes,"886,52858109",887,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,25 à 54 ans,Français,hommes,"1353,9107125",1354,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,55 ans ou plus,Français,femmes,"1040,6865021",1041,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,moins de 15 à 24 ans ans,Étrangers,hommes,"21,069112515",21,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,15 à 24 ans,Étrangers,hommes,"6,9949951426",7,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,moins de 15 à 24 ans ans,Français,femmes,"591,51430922",592,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,moins de 15 à 24 ans ans,Français,hommes,"589,96650923",590,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,55 ans ou plus,Étrangers,femmes,"11,207909251",11,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,25 à 54 ans,Français,femmes,"1396,7120598",1397,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,25 à 54 ans,Étrangers,hommes,"47,94282234",48,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,25 à 54 ans,Étrangers,femmes,"51,084503335",51,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,15 à 24 ans,Français,hommes,"461,25830516",461,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,55 ans ou plus,Étrangers,hommes,"10,861842986",11,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35206,Noyal-Châtillon-sur-Seiche,moins de 15 à 24 ans ans,Étrangers,femmes,"15,252957006",15,35206,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,25 à 54 ans,Étrangers,hommes,"13,621056647",14,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,25 à 54 ans,Français,femmes,"846,99507025",847,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,55 ans ou plus,Étrangers,hommes,"3,9894381826",4,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,moins de 15 à 24 ans ans,Étrangers,hommes,"4,4026204222",4,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,moins de 15 à 24 ans ans,Étrangers,femmes,"4,2210598288",4,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,25 à 54 ans,Étrangers,femmes,"11,519592482",12,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,15 à 24 ans,Français,femmes,"215,97152237",216,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,moins de 15 à 24 ans ans,Français,hommes,"428,63712474",429,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,25 à 54 ans,Français,hommes,"846,7368233",847,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,moins de 15 à 24 ans ans,Français,femmes,"418,12944627",418,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,15 à 24 ans,Français,hommes,"246,24992908",246,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,15 à 24 ans,Étrangers,femmes,"4,9495615716",5,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,15 à 24 ans,Étrangers,hommes,"3,8102399232",4,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,55 ans ou plus,Français,hommes,"491,05349147",491,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,55 ans ou plus,Étrangers,femmes,"1,9690675019",2,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35208,Orgères,55 ans ou plus,Français,femmes,"528,74395595",529,35208,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,moins de 15 à 24 ans ans,Étrangers,femmes,"24,552529464",25,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,55 ans ou plus,Étrangers,femmes,"11,960164162",12,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,moins de 15 à 24 ans ans,Français,hommes,"1215,3893454",1215,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,15 à 24 ans,Étrangers,hommes,"10,48767652",10,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,55 ans ou plus,Étrangers,hommes,"8,2080377189",8,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,moins de 15 à 24 ans ans,Français,femmes,"1176,4923184",1176,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,25 à 54 ans,Français,femmes,"2295,9444945",2296,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,25 à 54 ans,Étrangers,hommes,"64,96184517",65,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,15 à 24 ans,Français,hommes,"803,41245182",803,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,moins de 15 à 24 ans ans,Étrangers,hommes,"17,71361306",18,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,15 à 24 ans,Français,femmes,"776,87782407",777,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,15 à 24 ans,Étrangers,femmes,"16,118534917",16,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,55 ans ou plus,Français,femmes,"1426,5946956",1427,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,25 à 54 ans,Français,hommes,"2163,64048",2164,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,25 à 54 ans,Étrangers,femmes,"74,592691975",75,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35210,Pacé,55 ans ou plus,Français,hommes,"1201,0532972",1201,35210,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,moins de 15 à 24 ans ans,Français,hommes,"237,19128329",237,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,25 à 54 ans,Français,hommes,"351,00484262",351,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,55 ans ou plus,Étrangers,hommes,"3,8256658596",4,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,moins de 15 à 24 ans ans,Étrangers,hommes,"0,9564164649",1,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,55 ans ou plus,Français,hommes,"109,031477",109,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,55 ans ou plus,Français,femmes,"105,20581114",105,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,25 à 54 ans,Étrangers,hommes,"9,5641646489",10,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,moins de 15 à 24 ans ans,Français,femmes,"214,23728814",214,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,25 à 54 ans,Français,femmes,"358,65617433",359,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,15 à 24 ans,Étrangers,hommes,0,0,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,15 à 24 ans,Étrangers,femmes,"3,8256658596",4,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,25 à 54 ans,Étrangers,femmes,"10,520581114",11,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,15 à 24 ans,Français,hommes,"79,382566586",79,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,55 ans ou plus,Étrangers,femmes,0,0,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,15 à 24 ans,Français,femmes,"94,685230024",95,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35216,Parthenay-de-Bretagne,moins de 15 à 24 ans ans,Étrangers,femmes,"1,9128329298",2,35216,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,moins de 15 à 24 ans ans,Français,hommes,"422,35053964",422,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,55 ans ou plus,Français,hommes,"441,67886963",442,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,15 à 24 ans,Étrangers,hommes,"2,918915002",3,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,55 ans ou plus,Étrangers,hommes,"6,8108016714",7,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,25 à 54 ans,Étrangers,hommes,"33,107982028",33,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,55 ans ou plus,Français,femmes,"436,86427864",437,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,25 à 54 ans,Français,femmes,"841,5756599",842,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,25 à 54 ans,Étrangers,femmes,"27,243206686",27,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,15 à 24 ans,Français,hommes,"266,59423685",267,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,15 à 24 ans,Français,femmes,"265,62126518",266,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,55 ans ou plus,Étrangers,femmes,"9,7297166734",10,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,moins de 15 à 24 ans ans,Étrangers,hommes,"17,513490012",18,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,25 à 54 ans,Français,hommes,"828,39740944",828,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,moins de 15 à 24 ans ans,Étrangers,femmes,"9,7297166734",10,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,moins de 15 à 24 ans ans,Français,femmes,"400,99905364",401,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35363,Pont-Péan,15 à 24 ans,Étrangers,femmes,"4,8648583367",5,35363,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,55 ans ou plus,Français,femmes,"28949,970172",28950,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,15 à 24 ans,Étrangers,femmes,"1729,2225672",1729,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,15 à 24 ans,Français,hommes,"23425,69619",23426,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,25 à 54 ans,Étrangers,femmes,"3982,3936874",3982,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,moins de 15 à 24 ans ans,Français,hommes,"13389,832919",13390,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,55 ans ou plus,Étrangers,hommes,"846,41487663",846,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,15 à 24 ans,Étrangers,hommes,"1507,9034565",1508,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,15 à 24 ans,Français,femmes,"26178,176892",26178,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,25 à 54 ans,Français,femmes,"35721,355756",35721,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,moins de 15 à 24 ans ans,Français,femmes,"13146,337583",13146,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,moins de 15 à 24 ans ans,Étrangers,hommes,"1727,5670184",1728,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,moins de 15 à 24 ans ans,Étrangers,femmes,"1610,2085866",1610,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,25 à 54 ans,Étrangers,hommes,"4271,734312",4272,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,55 ans ou plus,Étrangers,femmes,"829,41767067",829,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,55 ans ou plus,Français,hommes,"19600,411958",19600,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35238,Rennes,25 à 54 ans,Français,hommes,"36537,356355",36537,35238,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,moins de 15 à 24 ans ans,Étrangers,femmes,"1,0116336371",1,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,15 à 24 ans,Français,femmes,"190,64201473",191,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,moins de 15 à 24 ans ans,Français,hommes,"473,50074446",474,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,25 à 54 ans,Étrangers,hommes,"13,333379627",13,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,25 à 54 ans,Français,hommes,"800,94284925",801,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,55 ans ou plus,Français,femmes,"471,09124314",471,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,moins de 15 à 24 ans ans,Français,femmes,"455,3968661",455,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,55 ans ou plus,Français,hommes,"432,65468396",433,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,55 ans ou plus,Étrangers,femmes,"2,0416749054",2,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,15 à 24 ans,Étrangers,femmes,"3,0802734083",3,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,25 à 54 ans,Étrangers,femmes,"10,289435816",10,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,15 à 24 ans,Français,hommes,"216,90210307",217,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,55 ans ou plus,Étrangers,hommes,"3,1079692846",3,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,25 à 54 ans,Français,femmes,"789,85078716",790,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,15 à 24 ans,Étrangers,hommes,"3,0897225786",3,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35245,Romillé,moins de 15 à 24 ans ans,Étrangers,hommes,"4,0646188906",4,35245,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,15 à 24 ans,Étrangers,hommes,0,0,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,55 ans ou plus,Étrangers,hommes,2,2,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,15 à 24 ans,Français,hommes,120,120,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,25 à 54 ans,Français,femmes,394,394,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,25 à 54 ans,Étrangers,femmes,6,6,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,15 à 24 ans,Français,femmes,116,116,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,25 à 54 ans,Étrangers,hommes,7,7,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,55 ans ou plus,Français,femmes,219,219,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,moins de 15 à 24 ans ans,Français,femmes,205,205,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,moins de 15 à 24 ans ans,Français,hommes,164,164,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,moins de 15 à 24 ans ans,Étrangers,femmes,2,2,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,15 à 24 ans,Étrangers,femmes,0,0,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,55 ans ou plus,Français,hommes,196,196,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,25 à 54 ans,Français,hommes,386,386,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,moins de 15 à 24 ans ans,Étrangers,hommes,1,1,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35250,Saint-Armel,55 ans ou plus,Étrangers,femmes,2,2,35250,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,moins de 15 à 24 ans ans,Étrangers,hommes,"4,8106981591",5,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,moins de 15 à 24 ans ans,Étrangers,femmes,"1,9242792636",2,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,25 à 54 ans,Français,femmes,"572,47308093",572,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,15 à 24 ans,Français,femmes,"163,56373741",164,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,55 ans ou plus,Étrangers,hommes,"1,9242792636",2,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,25 à 54 ans,Étrangers,femmes,"17,318513373",17,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,25 à 54 ans,Français,hommes,"527,25251824",527,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,25 à 54 ans,Étrangers,hommes,"16,356373741",16,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,moins de 15 à 24 ans ans,Français,femmes,"255,92914206",256,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,15 à 24 ans,Étrangers,hommes,"0,9621396318",1,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,55 ans ou plus,Étrangers,femmes,"2,8864188954",3,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,55 ans ou plus,Français,femmes,"371,38589788",371,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,moins de 15 à 24 ans ans,Français,hommes,"282,86905175",283,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,15 à 24 ans,Étrangers,femmes,"2,8864188954",3,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,15 à 24 ans,Français,hommes,"199,16290379",199,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35266,Saint-Erblon,55 ans ou plus,Français,hommes,"348,29454672",348,35266,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,15 à 24 ans,Étrangers,femmes,"4,3635855217",4,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,15 à 24 ans,Français,femmes,"242,22864442",242,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,25 à 54 ans,Français,femmes,"827,94341078",828,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,55 ans ou plus,Étrangers,hommes,"2,3281723291",2,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,moins de 15 à 24 ans ans,Français,hommes,"408,87214713",409,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,moins de 15 à 24 ans ans,Étrangers,femmes,"3,1802963009",3,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,moins de 15 à 24 ans ans,Étrangers,hommes,"3,32040705",3,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,55 ans ou plus,Étrangers,femmes,0,0,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,25 à 54 ans,Étrangers,hommes,"16,754777071",17,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,15 à 24 ans,Français,hommes,"221,14976446",221,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,55 ans ou plus,Français,femmes,"668,28455317",668,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,55 ans ou plus,Français,hommes,"603,66497207",604,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,25 à 54 ans,Étrangers,femmes,"15,227784962",15,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,15 à 24 ans,Étrangers,hommes,"3,1356213692",3,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,25 à 54 ans,Français,hommes,"780,91299317",781,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35275,Saint-Gilles,moins de 15 à 24 ans ans,Français,femmes,"389,63287019",390,35275,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,25 à 54 ans,Étrangers,hommes,36,36,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,15 à 24 ans,Français,hommes,646,646,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,55 ans ou plus,Français,hommes,1251,1251,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,55 ans ou plus,Français,femmes,1464,1464,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,moins de 15 à 24 ans ans,Français,hommes,907,907,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,15 à 24 ans,Français,femmes,615,615,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,15 à 24 ans,Étrangers,femmes,8,8,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,25 à 54 ans,Français,femmes,1720,1720,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,55 ans ou plus,Étrangers,hommes,12,12,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,15 à 24 ans,Étrangers,hommes,6,6,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,25 à 54 ans,Français,hommes,1646,1646,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,moins de 15 à 24 ans ans,Étrangers,femmes,7,7,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,moins de 15 à 24 ans ans,Français,femmes,813,813,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,55 ans ou plus,Étrangers,femmes,6,6,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,moins de 15 à 24 ans ans,Étrangers,hommes,8,8,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35278,Saint-Grégoire,25 à 54 ans,Étrangers,femmes,50,50,35278,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,55 ans ou plus,Étrangers,hommes,"17,636466198",18,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,15 à 24 ans,Étrangers,femmes,"47,795593921",48,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,55 ans ou plus,Français,femmes,"1281,2737635",1281,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,15 à 24 ans,Français,hommes,"811,66637943",812,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,15 à 24 ans,Français,femmes,"899,80763105",900,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,25 à 54 ans,Étrangers,femmes,"151,41181007",151,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,55 ans ou plus,Français,hommes,"1026,6847592",1027,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,moins de 15 à 24 ans ans,Français,hommes,"1082,1458455",1082,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,25 à 54 ans,Étrangers,hommes,"194,45644853",194,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,15 à 24 ans,Étrangers,hommes,"61,336391274",61,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,25 à 54 ans,Français,femmes,"2779,0896052",2779,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,55 ans ou plus,Étrangers,femmes,"12,743892055",13,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,moins de 15 à 24 ans ans,Français,femmes,"1141,3050123",1141,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,moins de 15 à 24 ans ans,Étrangers,femmes,"69,279675469",69,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,moins de 15 à 24 ans ans,Étrangers,hommes,"68,168242174",68,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35281,Saint-Jacques-de-la-Lande,25 à 54 ans,Français,hommes,"2658,198484",2658,35281,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,moins de 15 à 24 ans ans,Étrangers,femmes,"2,1121351767",2,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,moins de 15 à 24 ans ans,Étrangers,hommes,"2,1121351767",2,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,55 ans ou plus,Français,femmes,"195,37250384",195,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,moins de 15 à 24 ans ans,Français,femmes,"139,40092166",139,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,moins de 15 à 24 ans ans,Français,hommes,"160,52227343",161,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,15 à 24 ans,Français,hommes,"77,092933948",77,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,25 à 54 ans,Français,femmes,"272,46543779",272,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,25 à 54 ans,Français,hommes,"260,84869432",261,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,25 à 54 ans,Étrangers,hommes,"4,2242703533",4,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,55 ans ou plus,Étrangers,femmes,"1,0560675883",1,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,55 ans ou plus,Français,hommes,"191,14823349",191,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,15 à 24 ans,Étrangers,hommes,0,0,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,15 à 24 ans,Étrangers,femmes,0,0,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,15 à 24 ans,Français,femmes,"60,195852535",60,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,55 ans ou plus,Étrangers,hommes,0,0,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35315,Saint-Sulpice-la-Forêt,25 à 54 ans,Étrangers,femmes,"8,4485407066",8,35315,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,25 à 54 ans,Français,femmes,1640,1640,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,25 à 54 ans,Étrangers,hommes,61,61,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,moins de 15 à 24 ans ans,Français,hommes,868,868,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,moins de 15 à 24 ans ans,Étrangers,hommes,10,10,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,55 ans ou plus,Français,hommes,1038,1038,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,moins de 15 à 24 ans ans,Étrangers,femmes,15,15,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,55 ans ou plus,Étrangers,hommes,7,7,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,moins de 15 à 24 ans ans,Français,femmes,808,808,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,25 à 54 ans,Français,hommes,1569,1569,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,15 à 24 ans,Français,femmes,397,397,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,15 à 24 ans,Étrangers,femmes,8,8,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,15 à 24 ans,Étrangers,hommes,11,11,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,15 à 24 ans,Français,hommes,429,429,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,25 à 54 ans,Étrangers,femmes,39,39,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,55 ans ou plus,Étrangers,femmes,5,5,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35334,Thorigné-Fouillard,55 ans ou plus,Français,femmes,1107,1107,35334,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,55 ans ou plus,Étrangers,femmes,"8,0505365178",8,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,moins de 15 à 24 ans ans,Français,femmes,"695,32718934",695,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,25 à 54 ans,Français,hommes,"1506,077399",1506,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,25 à 54 ans,Étrangers,hommes,"42,463756829",42,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,moins de 15 à 24 ans ans,Français,hommes,"717,47248183",717,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,15 à 24 ans,Étrangers,hommes,"2,0126341295",2,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,25 à 54 ans,Français,femmes,"1527,2386429",1527,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,15 à 24 ans,Français,femmes,"490,8382094",491,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,moins de 15 à 24 ans ans,Étrangers,hommes,"12,075804777",12,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,55 ans ou plus,Français,hommes,"1096,8235813",1097,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,15 à 24 ans,Français,hommes,"507,07271692",507,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,55 ans ou plus,Français,femmes,"1239,1111696",1239,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,15 à 24 ans,Étrangers,femmes,"10,063170647",10,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,55 ans ou plus,Étrangers,hommes,"10,063170647",10,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,moins de 15 à 24 ans ans,Étrangers,femmes,"11,069487712",11,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35352,Vern-sur-Seiche,25 à 54 ans,Étrangers,femmes,"38,24004846",38,35352,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,15 à 24 ans,Étrangers,femmes,"9,1248961165",9,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,moins de 15 à 24 ans ans,Étrangers,femmes,"28,287177961",28,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,25 à 54 ans,Français,femmes,"803,10078941",803,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,55 ans ou plus,Étrangers,hommes,"14,54393178",15,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,15 à 24 ans,Français,hommes,"378,22607929",378,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,15 à 24 ans,Étrangers,hommes,"29,953768166",30,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,55 ans ou plus,Français,hommes,"709,58301537",710,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,25 à 54 ans,Étrangers,hommes,"173,00908668",173,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,25 à 54 ans,Étrangers,femmes,"56,565038921",57,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,55 ans ou plus,Français,femmes,"766,34194583",766,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,moins de 15 à 24 ans ans,Français,femmes,"361,52103637",362,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,moins de 15 à 24 ans ans,Étrangers,hommes,"22,812240291",23,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,moins de 15 à 24 ans ans,Français,hommes,"399,6704499",400,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,55 ans ou plus,Étrangers,femmes,"7,7875178496",8,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,25 à 54 ans,Français,hommes,"1167,0098339",1167,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
+COM,35353,Vezin-le-Coquet,15 à 24 ans,Français,femmes,"225,46319216",225,35353,243500139,CA Rennes Métropole,35,ILLE-ET-VILAINE,BRETAGNE
