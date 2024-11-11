@@ -965,10 +965,9 @@ covid %>% plot_ly(type = "scatter", mode = "lines") %>%
 ---
 
 ## De ggplot à plotly
-.pull-left[
 - une fonction permet de transcrire un objet créé par `ggplot()` en un objet pouvant sortir de `plot_ly()`
 
-```{r }
+```{r, echo=FALSE}
 p <- penguins %>% ggplot() +
   aes(x = bill_d, y = bill_l, color = island) +
   geom_point() +
@@ -979,19 +978,17 @@ p <- penguins %>% ggplot() +
        color = "île")
 
 ```
-]
-.pull-right[
 ```{r, eval =FALSE}
 p  %>%  ggplotly()
 ```
 
 ```{r, eval =TRUE, echo = FALSE}
 p <- p  %>%  ggplotly()
-htmltools::save_html(p, file="ggplotly.html")  
+htmltools::save_html(p, file="ggplotly.html") 
 ```
 
 <iframe src="ggplotly.html" width="1000" height="800" scrolling="yes" seamless="seamless" frameBorder="0"> </iframe>
-]
+
 ---
 ## Facilitation de la visualisation dans l'espace
 - dans des cas très précis, on peut être amené à rechercher une vision en 3 dimensions
