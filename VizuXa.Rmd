@@ -66,7 +66,7 @@ class: inverse, middle, center
 
 ---
 
-## Au menu aujourd'hui et demain
+## Menu du jour 
 
 - Objectif : revenir sur les différentes étapes de réalisation à travers l'utilisation de paquets spécifiques
   + manipulation et gestion des tableaux  avec `tidyr`, `purrr`, `dplyr` et `forcats`
@@ -76,7 +76,7 @@ class: inverse, middle, center
 
 
 - liste des paquets utilisés  
-  + `tidyverse`, `palmerpenguins`, `lubridate`, `patchwork`, `ggpubr`, `ggrepel`, `plotly`
+  + `tidyverse`, `palmerpenguins`, `lubridate`, `patchwork`, `ggpubr`, `ggrepel`, `plotly`, `sf`, `rnaturalearth`, `rnaturalearthdata`
 
 ---
 
@@ -96,7 +96,7 @@ Le paquet **tidyverse** est un regroupement de plusieurs paquets (cf https://www
 - **lubridate** pour la gestion des dates
 - **stringr** pour la gestion des chaînes de caractères
 - **readr** pour l'importation (format tibble en sortie)
-- **ggplot2** pour la visualisation
+- **ggplot2** pour les graphiques
 - **purrr** pour la programmation
 - ...
 
@@ -293,9 +293,16 @@ penguins %>% group_by(island, species) %>%
 - grouper/dégrouper
 ```{r}
 penguins %>% group_by(island, species) %>% 
-             summarise(nb = n()) %>% 
-             ungroup() %>% 
+             summarise(nb = n(), .groups = "drop_last") %>% 
              mutate(pourcentage = nb / sum(nb) * 100)
+```
+
+```{r, eval=F}
+penguins %>% summarise(nb = n(), .by = c(island, species)) %>% 
+             mutate(pourcentage = nb / sum(nb) * 100, .by = island)
+penguins %>% 
+  summarise(nb = n(),.by = c(species, island)) %>% 
+  mutate(pourcentage = nb/sum(nb)*100, .by = island)
 ```
 ---
 ## Descriptions conditionnelles
@@ -361,9 +368,49 @@ d
 .pull-right[
 - on cherche alors à créer un tableau où l'individu est un recensement, et le pays une variable
 ```{r}
-d %>% pivot_longer(c("pop1992","pop1997"))
+d <- d %>% pivot_longer(cols = starts_with("pop"),
+                         names_to = "année",
+                         values_to = "population",
+                         names_prefix = "pop")
+d
 ```
 ]
+
+---
+## Transformations des données : un exemple
+.pull-left[
+```{r}
+d
+```
+
+]
+.pull-right[
+```{r}
+d %>% pivot_wider(names_from = année,
+                  values_from = population,
+                  names_prefix = "pop")
+```
+]
+---
+## Jointures
+
+.pull-left[
+```{r}
+df1 <- tibble(x = 1:3, 
+              z = c("a", "b", "c"))
+df2 <- tibble(x = c(1, 1, 2), 
+              y = c("first", "second", "third"))
+df1
+df2
+```
+]
+.pull-left[
+```{r}
+df1 %>% left_join(df2)
+df2 %>% left_join(df1)
+```
+]
+
 ---
 ## Manipulations des chaînes de caractères : un exemple
 - concaténation et séparations simples
@@ -378,7 +425,7 @@ d %>% separate(new, c("ile", "espece")) %>% slice(1:3)
 - transcription facile
 
 ```{r}
-library(lubridate) ## package non contenu dans le tidyverse mais complètement compatible
+# fonctions provenant de la librairie lubridate contenue dans le tidyverse
 ymd(20101215)
 ymd(101215)
 mdy("4/1/17")
@@ -402,7 +449,7 @@ class: inverse, middle, center
   + environnements en évolution constante, un nombre énorme de fonctions pour différentes situations
 - le fonctionnement :
   + tous les graphiques débutent par l'appel de la fonction `ggplot()`
-  + ensuite, empilement de couches/calques/écailles, ce n'est pas le pipe que sert mais le signe `+`
+  + ensuite, empilement de couches/calques/écailles, ce n'est pas le *pipe* que sert mais le signe `+`
    
 
 ---
@@ -430,13 +477,15 @@ class: inverse, middle, center
 .pull-left[
 ```{r, eval=FALSE}
 penguins %>% 
-  ggplot(aes(x = species)) + geom_bar()
+  ggplot(aes(x = species)) + 
+  geom_bar()
 ```
 ]
 .pull-left[
 ```{r, echo=FALSE}
 penguins %>% 
-  ggplot(aes(x = species)) + geom_bar()
+  ggplot(aes(x = species)) + 
+  geom_bar()
 ```
 ]
 ---
@@ -446,14 +495,18 @@ penguins %>%
 - pour enrichir la représentation, il peut être intéressant de croiser les variables
 .pull-left[
 ```{r, eval = FALSE}
-penguins %>% 
-  ggplot(aes(x = species, fill = island)) + geom_bar()
+penguins %>%
+  ggplot() +
+  aes(x = species, fill = island)+
+  geom_bar()
 ```
 ]
 .pull-right[
 ```{r, echo = FALSE}
 penguins %>% 
-  ggplot(aes(x = species, fill = island)) + geom_bar()
+  ggplot() + 
+  aes(x = species, fill = island) +
+  geom_bar()
 ```
 ]
 
@@ -464,7 +517,8 @@ penguins %>%
 - plusieurs variantes possibles
 ```{r, eval=FALSE}
 penguins %>% 
-  ggplot(aes(x = species, fill = island)) + 
+  ggplot() +
+  aes(x = species, fill = island) +
   geom_bar(position = position_dodge())
 ```
 ]
@@ -476,7 +530,7 @@ penguins %>%
 ```
 ]
 ---
-## Cosmétiques
+## Cosmétiques : 1e couche
 
 .pull-left[
 - afin de rendre le graphique plus lisible
@@ -486,7 +540,9 @@ penguins %>% ggplot(aes(x = species, fill = island)) +
   ggtitle("Répartition des manchots par espèce") +
   xlab("Espèces des manchots observés") +
   ylab("Nombres d'individus") +
-  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+  labs(fill = "Île") +#labs() permet de régler beaucoup de choses
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 ]
 .pull-right[
@@ -496,7 +552,9 @@ penguins %>% ggplot(aes(x = species, fill = island)) +
   ggtitle("Répartition des manchots par espèce") +
   xlab("Espèces des manchots observés") +
   ylab("Nombres d'individus") +
-  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+  labs(fill = "Île") +#labs() permet de régler beaucoup de choses
+  theme(text = element_text(size = 20),
+        axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 ]
 ---
@@ -556,22 +614,67 @@ geom_boxplot()
 - la fonction `geom_smooth()` permet d'ajouter les droites de régression par groupe ainsi que les intervalles de confiance sur la tendance
 .pull-left[
 ```{r, eval=FALSE}
-penguins %>%
+p <- penguins %>%
   ggplot() +
   aes(x = bill_l, y = bill_d, color = species) +
   labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
   geom_point() +
   geom_smooth(method = "lm")
+p
 ```
 ]
 .pull-right[
 ```{r, echo=FALSE}
-penguins %>%
+p <-penguins %>%
   ggplot() +
   aes(x = bill_l, y = bill_d, color = species) +
   labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
   geom_point() +
   geom_smooth(method = "lm")
+p
+```
+]
+
+---
+## Cosmétiques : 2e couche
+
+.pull-left[
+- changement de couleurs à l'aide des fonctions du type commençant par `scale_`
+```{r, eval=FALSE}
+mycolors = c("orange", "pink", "dodgerblue4", "yellow")
+p + scale_discrete_manual(
+  aesthetics = c("colour"),
+  values = mycolors)
+#argument fill disponible en aesthetics
+# plusieurs palettes déjà définies
+# par exemple pour les daltoniens :
+p + scale_color_viridis_d()
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+mycolors = c("orange", "pink", "dodgerblue4", "yellow")
+p + scale_discrete_manual(
+  aesthetics = c("colour"),
+  values = mycolors)
+```
+]
+
+---
+## Arrière-plan 
+- jeu possible avec plein de thèmes déjà enregistrés, fonctions commençant par : `theme_`
+.pull-left[
+```{r, eval=FALSE}
+p %>% theme_dark()
+# nombre d'arguments différents dans le thème :
+length(names(theme_dark()))
+```
+]
+.pull-right[
+```{r, echo=FALSE}
+p + theme_dark()
+# nombre d'arguments différents dans le thème :
+length(names(theme_dark()))
 ```
 ]
 
@@ -580,14 +683,72 @@ penguins %>%
 
 - illustration d'un effet d'interaction dans un modèle linéaire
 ```{r, echo=FALSE}
-penguins %>% na.omit() %>% 
+p <- penguins %>% na.omit() %>% 
   group_by(sex, island) %>% 
   summarise(moyennes = mean(bill_l)) %>% 
   ggplot() +
   aes(x = sex, y = moyennes, group = island, color = island) +
   labs(x = "sexe", y = "longueurs de bec moyennes", color = "île") + geom_point() + geom_line()
+p
 ```
+---
+## Mise en lumière
+- suivant la qualité de l'interlocuteur, il peut être important de guider son oeil sur les parties du graphique sur lesquelles vous concentrez votre analyse
+.pull-left[
+```{r, eval=FALSE}
+p + annotate(
+  'curve',
+  x = 1:2,
+  y = c(37.8, 40.9),
+  xend = 1:2,
+  yend = c(42, 45.8),
+  curvature = -.25,
+  arrow = arrow(length = unit(.5, "cm"))
+) +
+  annotate('text',
+           x = 1.5,
+           y = 41.2,
+           label = "sauts du \n même ordre",
+           size = 15) +
+  annotate(
+    'rect',
+    xmin = 1.15,
+    xmax = 1.85,
+    ymin = 40,
+    ymax = 42.5,
+    alpha = .4
+  )
+```
+]
 
+.pull-right[
+```{r, echo=FALSE}
+p + annotate(
+  'curve',
+  x = 1:2,
+  y = c(37.8, 40.9),
+  xend = 1:2,
+  yend = c(42, 45.8),
+  curvature = -.25,
+  arrow = arrow(length = unit(.5, "cm"))
+) +
+  annotate('text',
+           x = 1.5,
+           y = 41.2,
+           label = "sauts du \n même ordre",
+           size = 15) +
+  annotate(
+    'rect',
+    xmin = 1.15,
+    xmax = 1.85,
+    ymin = 40,
+    ymax = 42.5,
+    alpha = .4
+  ) +
+    theme(text = element_text(size = 25))
+```
+  
+]
 ---
 ## La magie des facettes
 
@@ -600,7 +761,8 @@ penguins %>%
   aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
   geom_histogram(alpha = 0.5) +
   facet_wrap(~island+sex) +
-  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")+
+    theme(text = element_text(size = 25))
 ```
 ]
 .pull-right[
@@ -611,7 +773,8 @@ penguins %>%
   aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
   geom_histogram(alpha = 0.5) +
   facet_wrap(~island+sex) +
-  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")+
+    theme(text = element_text(size = 25))
 ```
 ]
 ---
@@ -665,12 +828,13 @@ ggarrange(p1, p3, p2,
 ## Ensuite ?
 
 - énorme communauté autour de `tidyverse` et `ggplot`
-- chaque question qu'on se pose à très certainement une réponse simple, concise (ou presque) et reproductible
+- chaque question qu'on se pose a très certainement une réponse simple, concise (ou presque) et reproductible
 - quelques sources 
   + <a href="http://www.sthda.com/english/">Statistical tools for high-throughput data analysis</a>
   + <a href="https://www.datanovia.com/en/fr/"> Datanovia</a>
   + <a href="https://stackoverflow.com/"> Stackoverflow</a>
-
+  + <a href="https://exts.ggplot2.tidyverse.org/gallery/"> présentation de multiples librairies d'extensions ggplot </a>
+- facilités également fournies par les intelligences artificielles, plus la question est précise mieux c'est !
 
 ---
 class: inverse, middle, center
@@ -809,7 +973,7 @@ p <- penguins %>% ggplot() +
   aes(x = bill_d, y = bill_l, color = island) +
   geom_point() +
   geom_smooth(method = "lm") +
-  labs(title = "lien entre les variables longueur et profondeur de bec",
+  labs(
        x = "profondeur de bec",
        y = "longueur de bec",
        color = "île")
@@ -916,7 +1080,6 @@ penguins %>%
     showlegend = FALSE
   ) %>%
   layout(
-    title = "longueur de bec en fonction de la profondeur",
     xaxis = list(title = "profondeur de bec"),
     yaxis = list(title = "longueur de bec")
   )
@@ -987,7 +1150,7 @@ p
 ## Le problème de la projection 
 
 - il est possible de changer de méthode de projection
-```{r, ,fig.width = 14}
+```{r ,fig.width = 14}
 p + coord_map(projection = "orthographic")
 ```
 
@@ -998,9 +1161,36 @@ p + coord_map(projection = "orthographic")
 ```{r, ,fig.width = 14}
 p + coord_map(projection = "conic", lat0 = 30)
 ```
+---
+## A quoi sert l'argument de groupe dans l'aesthetics ?
+- comme pour le graphique d'interaction, il permet de définir l'ensemble des points à relier
+- le tableau créé ci-dessous définit un ensemble de points définissant les contours des départements
+```{r,  fig.dim=c(6, 4), out.width='150%'}
+france <- map_data("france")
+head(france)
+fr_map <- france %>%
+  ggplot() +
+  aes(x = long, y = lat) +
+  coord_quickmap()
+fr_map1 <- fr_map + geom_point(size = .001)
+fr_map2 <- fr_map + geom_polygon()
+fr_map3 <-
+  fr_map + geom_polygon(aes(group = group),
+                        color = 'black',
+                        fill = 'white')
+```
+
+---
+## Comparons
+- le premier graphe représente des points très proches les uns des autres, le second cherche à créer un polygone avec tous les points, enfin le dernier sait quels polygones tracer
+```{r,  fig.dim=c(11, 7)}
+fr_map1+fr_map2+fr_map3
+```
+
 
 ---
 ## Rajouter les noms
+
 ```{r,fig.width = 14}
 region.lab.data <- arrests_map %>%
   group_by(region) %>%
@@ -1051,4 +1241,101 @@ p_cities <- p +
 
 ```{r, ,fig.width = 14, echo=FALSE}
 p_cities 
+```
+
+---
+
+## Autour de la structure des cartes
+
+- pour plus de maîtrise sur l'objet définissant les cartes, on peut manipuler ce qu'on appelle des **shape files** qui vont définir les géométries des cartes à l'aide de polygones 
+```{r}
+library(sf) # Simple Features for R 
+library(rnaturalearth) # base de cartes
+library(rnaturalearthdata) # base de données
+world <- ne_countries(scale = "medium", returnclass = "sf")
+class(world)
+glimpse(world)
+```
+
+---
+
+## L'information des contours
+- un multipolygone permet de définir le contour
+```{r}
+world$geometry[1]
+```
+
+---
+
+## La représentation 
+- pour représenter la carte, la fonction est `geom_sf()`
+```{r}
+world %>%  filter(brk_name == "Germany") %>% ggplot() + geom_sf()
+```
+
+---
+
+## Le changement de système de coordonnées
+.pull-left[
+- l'argument `crs` correspond à une désignation du système de coordonnées utilisées en faisant référence à un choix de projection (Coordinate Reference System), on peut redéfinir le choix de la projection
+- pour plus d'info sur le choix fait ici : https://epsg.io/32631
+lorsque l'on renseigne un entier, cela fait référence à la nomenclature EPSG de différents systèmes de coordonnées]
+.pull-right[
+```{r}
+world %>%  filter(brk_name == "Germany") %>% st_transform( crs = 32631) %>% ggplot() + geom_sf()
+```
+]
+---
+
+## Importation de shape file
+
+- prenons les données de Rennes Métropole disponibles ici : https://www.data.gouv.fr/fr/datasets/limites-communales-referentielles-de-rennes-metropole-polygones-1/
+
+```{r, eval = FALSE}
+rm_shape <- st_read(dsn = "rennes-metropole/", )
+rm_shape %>% ggplot(aes(fill = nom)) + 
+  geom_sf() + 
+  theme(legend.position = "none") + 
+  geom_sf_text(aes(label = nom), size = 2)
+```
+
+---
+
+## Environs de Rennes
+
+```{r, echo = FALSE}
+rm_shape <- st_read(dsn = "rennes-metropole/",)
+rm_shape %>% ggplot(aes(fill = nom)) + geom_sf() + theme(legend.position = "none") + geom_sf_text(aes(label = nom), size = 2)
+```
+
+---
+## Les jeunes dans Rennes Métropole
+
+- on veut représenter les proportions des 15-24 ans dans chaque commune de Rennes Métropole à partir des données suivantes :
+https://www.data.gouv.fr/fr/datasets/population-a-rennes-metropole-par-sexe-age-et-nationalite-par-commune-2014/
+
+```{r, eval=FALSE}
+rm_pops <- read.table("population-par-sexe-age-et-nationalite-par-commune-2014.csv", header = TRUE, sep = ",")
+rm15_24 <- rm_pops %>% group_by(nom, age4) %>%   summarize(pop = sum(population)) %>% ungroup(age4) %>%
+  mutate(population = pop/sum(pop)) %>% 
+  filter(age4 == "15 à 24 ans")
+left_join(rm_shape, rm15_24) %>% ggplot(aes(fill = population)) + geom_sf() + 
+  geom_label_repel(aes(label = ifelse(population > 0, nom, ''),geometry = geometry), stat = 'sf_coordinates', color = 'white', fill = "dodgerblue") + 
+  labs(x = 'longitude', y = 'latitude', title = "proportions des 15-24 ans", fill = 'proportions') + 
+    ylim(47.9,48.35) + xlim(2,1.4) 
+```
+---
+
+##  Représentation
+```{r, echo = FALSE, fig.align='center', fig.dim = c(10,8)}
+rm_pops <- read.table("population-par-sexe-age-et-nationalite-par-commune-2014.csv", header = TRUE, sep = ",")
+rm15_24 <- rm_pops %>% group_by(nom, age4) %>%   summarize(pop = sum(population)) %>% 
+  ungroup(age4) %>% 
+  mutate(population = pop/sum(pop)) %>% 
+  filter(age4 == "15 à 24 ans")
+rm15_24 <- left_join(rm_shape, rm15_24)
+rm15_24 %>% ggplot(aes(fill = population)) + 
+  geom_sf() + geom_label_repel(aes(label = ifelse(population>0,nom, ''), geometry = geometry), stat = 'sf_coordinates', color = 'white', fill = "dodgerblue")+
+  labs(x = 'longitude', y = 'latitude', title = "proportions des 15-24 ans", fill = 'proportions') + 
+  ylim(47.9,48.35) + xlim(2,1.4) 
 ```

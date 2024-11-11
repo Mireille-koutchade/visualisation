@@ -4,8 +4,8 @@
     <title>Visualisation des données</title>
     <meta charset="utf-8" />
     <meta name="author" content="JL Marchand" />
-    <meta name="date" content="2023-11-08" />
-    <script src="VizuXa_files/header-attrs-2.23/header-attrs.js"></script>
+    <meta name="date" content="2024-11-11" />
+    <script src="VizuXa_files/header-attrs-2.25/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
     <link rel="stylesheet" href="my_own.css" type="text/css" />
   </head>
@@ -20,7 +20,7 @@ class: center, middle, inverse, title-slide
 ### JL Marchand
 ]
 .date[
-### 2023-11-08
+### 2024-11-11
 ]
 
 ---
@@ -50,7 +50,7 @@ class: inverse, middle, center
 
 ---
 
-## Au menu aujourd'hui et demain
+## Menu du jour 
 
 - Objectif : revenir sur les différentes étapes de réalisation à travers l'utilisation de paquets spécifiques
   + manipulation et gestion des tableaux  avec `tidyr`, `purrr`, `dplyr` et `forcats`
@@ -80,7 +80,7 @@ Le paquet **tidyverse** est un regroupement de plusieurs paquets (cf https://www
 - **lubridate** pour la gestion des dates
 - **stringr** pour la gestion des chaînes de caractères
 - **readr** pour l'importation (format tibble en sortie)
-- **ggplot2** pour la visualisation
+- **ggplot2** pour les graphiques
 - **purrr** pour la programmation
 - ...
 
@@ -484,20 +484,29 @@ penguins %&gt;% group_by(island, species) %&gt;%
 
 ```r
 penguins %&gt;% group_by(island, species) %&gt;% 
-             summarise(nb = n()) %&gt;% 
-             ungroup() %&gt;% 
+             summarise(nb = n(), .groups = "drop_last") %&gt;% 
              mutate(pourcentage = nb / sum(nb) * 100)
 ```
 
 ```
 # A tibble: 5 × 4
+# Groups:   island [3]
   island    species      nb pourcentage
   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;       &lt;dbl&gt;
-1 Biscoe    Adelie       44        12.8
-2 Biscoe    Gentoo      124        36.0
-3 Dream     Adelie       56        16.3
-4 Dream     Chinstrap    68        19.8
-5 Torgersen Adelie       52        15.1
+1 Biscoe    Adelie       44        26.2
+2 Biscoe    Gentoo      124        73.8
+3 Dream     Adelie       56        45.2
+4 Dream     Chinstrap    68        54.8
+5 Torgersen Adelie       52       100  
+```
+
+
+```r
+penguins %&gt;% summarise(nb = n(), .by = c(island, species)) %&gt;% 
+             mutate(pourcentage = nb / sum(nb) * 100, .by = island)
+penguins %&gt;% 
+  summarise(nb = n(),.by = c(species, island)) %&gt;% 
+  mutate(pourcentage = nb/sum(nb)*100, .by = island)
 ```
 ---
 ## Descriptions conditionnelles
@@ -622,19 +631,112 @@ d
 - on cherche alors à créer un tableau où l'individu est un recensement, et le pays une variable
 
 ```r
-d %&gt;% pivot_longer(c("pop1992","pop1997"))
+d &lt;- d %&gt;% pivot_longer(cols = starts_with("pop"),
+                         names_to = "année",
+                         values_to = "population",
+                         names_prefix = "pop")
+d
 ```
 
 ```
 # A tibble: 4 × 3
-  pays     name       value
+  pays     année population
   &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
-1 Belgique pop1992 10045622
-2 Belgique pop1997 10199787
-3 France   pop1992 57374179
-4 France   pop1997 58623428
+1 Belgique 1992    10045622
+2 Belgique 1997    10199787
+3 France   1992    57374179
+4 France   1997    58623428
 ```
 ]
+
+---
+## Transformations des données : un exemple
+.pull-left[
+
+```r
+d
+```
+
+```
+# A tibble: 4 × 3
+  pays     année population
+  &lt;chr&gt;    &lt;chr&gt;      &lt;dbl&gt;
+1 Belgique 1992    10045622
+2 Belgique 1997    10199787
+3 France   1992    57374179
+4 France   1997    58623428
+```
+
+]
+.pull-right[
+
+```r
+d %&gt;% pivot_wider(names_from = année,
+                  values_from = population,
+                  names_prefix = "pop")
+```
+
+```
+# A tibble: 2 × 3
+  pays      pop1992  pop1997
+  &lt;chr&gt;       &lt;dbl&gt;    &lt;dbl&gt;
+1 Belgique 10045622 10199787
+2 France   57374179 58623428
+```
+]
+---
+## Jointures
+
+.pull-left[
+
+```r
+df1 &lt;- tibble(x = 1:3, 
+              z = c("a", "b", "c"))
+df2 &lt;- tibble(x = c(1, 1, 2), 
+              y = c("first", "second", "third"))
+df1
+df2
+```
+
+```
+# A tibble: 3 × 2
+      x z    
+  &lt;int&gt; &lt;chr&gt;
+1     1 a    
+2     2 b    
+3     3 c    
+# A tibble: 3 × 2
+      x y     
+  &lt;dbl&gt; &lt;chr&gt; 
+1     1 first 
+2     1 second
+3     2 third 
+```
+]
+.pull-left[
+
+```r
+df1 %&gt;% left_join(df2)
+df2 %&gt;% left_join(df1)
+```
+
+```
+# A tibble: 4 × 3
+      x z     y     
+  &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1     1 a     first 
+2     1 a     second
+3     2 b     third 
+4     3 c     &lt;NA&gt;  
+# A tibble: 3 × 3
+      x y      z    
+  &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;
+1     1 first  a    
+2     1 second a    
+3     2 third  b    
+```
+]
+
 ---
 ## Manipulations des chaînes de caractères : un exemple
 - concaténation et séparations simples
@@ -672,7 +774,7 @@ d %&gt;% separate(new, c("ile", "espece")) %&gt;% slice(1:3)
 
 
 ```r
-library(lubridate) ## package non contenu dans le tidyverse mais complètement compatible
+# fonctions provenant de la librairie lubridate contenue dans le tidyverse
 ymd(20101215)
 ymd(101215)
 mdy("4/1/17")
@@ -704,7 +806,7 @@ class: inverse, middle, center
   + environnements en évolution constante, un nombre énorme de fonctions pour différentes situations
 - le fonctionnement :
   + tous les graphiques débutent par l'appel de la fonction `ggplot()`
-  + ensuite, empilement de couches/calques/écailles, ce n'est pas le pipe que sert mais le signe `+`
+  + ensuite, empilement de couches/calques/écailles, ce n'est pas le *pipe* que sert mais le signe `+`
    
 
 ---
@@ -733,11 +835,12 @@ class: inverse, middle, center
 
 ```r
 penguins %&gt;% 
-  ggplot(aes(x = species)) + geom_bar()
+  ggplot(aes(x = species)) + 
+  geom_bar()
 ```
 ]
 .pull-left[
-![](VizuXa_files/figure-html/unnamed-chunk-29-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-34-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -747,12 +850,14 @@ penguins %&gt;%
 .pull-left[
 
 ```r
-penguins %&gt;% 
-  ggplot(aes(x = species, fill = island)) + geom_bar()
+penguins %&gt;%
+  ggplot() +
+  aes(x = species, fill = island)+
+  geom_bar()
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-31-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-36-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -763,15 +868,16 @@ penguins %&gt;%
 
 ```r
 penguins %&gt;% 
-  ggplot(aes(x = species, fill = island)) + 
+  ggplot() +
+  aes(x = species, fill = island) +
   geom_bar(position = position_dodge())
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-33-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-38-1.png)&lt;!-- --&gt;
 ]
 ---
-## Cosmétiques
+## Cosmétiques : 1e couche
 
 .pull-left[
 - afin de rendre le graphique plus lisible
@@ -782,11 +888,13 @@ penguins %&gt;% ggplot(aes(x = species, fill = island)) +
   ggtitle("Répartition des manchots par espèce") +
   xlab("Espèces des manchots observés") +
   ylab("Nombres d'individus") +
-  labs(fill = "Île") #labs() permet de régler beaucoup de choses
+  labs(fill = "Île") +#labs() permet de régler beaucoup de choses
+  theme(text = element_text(size = 15),
+        axis.text.x = element_text(angle = 90, hjust = 1))
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-35-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-40-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -812,7 +920,7 @@ penguins %&gt;% na.omit() %&gt;%
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-37-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
 ]
 ---
 ## La boîte à moustache
@@ -829,7 +937,7 @@ geom_boxplot()
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-39-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -839,24 +947,99 @@ geom_boxplot()
 .pull-left[
 
 ```r
-penguins %&gt;%
+p &lt;- penguins %&gt;%
   ggplot() +
   aes(x = bill_l, y = bill_d, color = species) +
   labs(x = "longueur de bec", y = "profondeur de bec", fill = "Espèce") +
   geom_point() +
   geom_smooth(method = "lm")
+p
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-41-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+]
+
+---
+## Cosmétiques : 2e couche
+
+.pull-left[
+- changement de couleurs à l'aide des fonctions du type commençant par `scale_`
+
+```r
+mycolors = c("orange", "pink", "dodgerblue4", "yellow")
+p + scale_discrete_manual(
+  aesthetics = c("colour"),
+  values = mycolors)
+#argument fill disponible en aesthetics
+# plusieurs palettes déjà définies
+# par exemple pour les daltoniens :
+p + scale_color_viridis_d()
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+]
+
+---
+## Arrière-plan 
+- jeu possible avec plein de thèmes déjà enregistrés, fonctions commençant par : `theme_`
+.pull-left[
+
+```r
+p %&gt;% theme_dark()
+# nombre d'arguments différents dans le thème :
+length(names(theme_dark()))
+```
+]
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-50-1.png)&lt;!-- --&gt;
+
+```
+[1] 136
+```
 ]
 
 ---
 ## Graphique d'interaction
 
 - illustration d'un effet d'interaction dans un modèle linéaire
-![](VizuXa_files/figure-html/unnamed-chunk-42-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-51-1.png)&lt;!-- --&gt;
+---
+## Mise en lumière
+- suivant la qualité de l'interlocuteur, il peut être important de guider son oeil sur les parties du graphique sur lesquelles vous concentrez votre analyse
+.pull-left[
 
+```r
+p + annotate(
+  'curve',
+  x = 1:2,
+  y = c(37.8, 40.9),
+  xend = 1:2,
+  yend = c(42, 45.8),
+  curvature = -.25,
+  arrow = arrow(length = unit(.5, "cm"))
+) +
+  annotate('text',
+           x = 1.5,
+           y = 41.2,
+           label = "sauts du \n même ordre",
+           size = 15) +
+  annotate(
+    'rect',
+    xmin = 1.15,
+    xmax = 1.85,
+    ymin = 40,
+    ymax = 42.5,
+    alpha = .4
+  )
+```
+]
+
+.pull-right[
+![](VizuXa_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+  
+]
 ---
 ## La magie des facettes
 
@@ -870,11 +1053,12 @@ penguins %&gt;%
   aes(x = bill_l, y = after_stat(density), color = sex, fill = island) +
   geom_histogram(alpha = 0.5) +
   facet_wrap(~island+sex) +
-  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")
+  labs(x = "longueur de bec", y = "densité", title = "histogrammes des longueurs de bec", fill = "île", color = "sexe")+
+    theme(text = element_text(size = 25))
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-44-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -893,7 +1077,7 @@ p1/(p2+p3)
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-46-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -911,19 +1095,20 @@ ggarrange(p1, p3, p2,
 ```
 ]
 .pull-right[
-![](VizuXa_files/figure-html/unnamed-chunk-48-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
 ]
 
 ---
 ## Ensuite ?
 
 - énorme communauté autour de `tidyverse` et `ggplot`
-- chaque question qu'on se pose à très certainement une réponse simple, concise (ou presque) et reproductible
+- chaque question qu'on se pose a très certainement une réponse simple, concise (ou presque) et reproductible
 - quelques sources 
   + &lt;a href="http://www.sthda.com/english/"&gt;Statistical tools for high-throughput data analysis&lt;/a&gt;
   + &lt;a href="https://www.datanovia.com/en/fr/"&gt; Datanovia&lt;/a&gt;
   + &lt;a href="https://stackoverflow.com/"&gt; Stackoverflow&lt;/a&gt;
-
+  + &lt;a href="https://exts.ggplot2.tidyverse.org/gallery/"&gt; présentation de multiples librairies d'extensions ggplot &lt;/a&gt;
+- facilités également fournies par les intelligences artificielles, plus la question est précise mieux c'est !
 
 ---
 class: inverse, middle, center
@@ -1118,7 +1303,7 @@ ggplot(world_map, aes(x = long, y = lat, group = group)) +
   geom_polygon(fill="dodgerblue4", colour = "white")
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 
 ---
 ## Utilisation des cartes
@@ -1159,7 +1344,7 @@ p &lt;- arrests_map %&gt;% ggplot() +
 p
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
 
 ---
 ## Le problème de la projection 
@@ -1170,7 +1355,7 @@ p
 p + coord_map(projection = "orthographic")
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
 
 ---
 ## Plusieurs choix possibles 
@@ -1181,7 +1366,7 @@ p + coord_map(projection = "orthographic")
 p + coord_map(projection = "conic", lat0 = 30)
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-76-1.png)&lt;!-- --&gt;
 ---
 ## A quoi sert l'argument de groupe dans l'aesthetics ?
 - comme pour le graphique d'interaction, il permet de définir l'ensemble des points à relier
@@ -1220,7 +1405,7 @@ fr_map3 &lt;-
 fr_map1+fr_map2+fr_map3
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-78-1.png)&lt;!-- --&gt;
 
 
 ---
@@ -1236,7 +1421,7 @@ p + geom_label_repel(data = region.lab.data, aes(x = long, y = lat, label = regi
   coord_map()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-79-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1289,7 +1474,7 @@ p_cities &lt;- p +
 
 ## Représentation spatiale du nombre d'arrestations aux USA avec capitales des états
 
-![](VizuXa_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-82-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1308,72 +1493,177 @@ glimpse(world)
 
 ```
 [1] "sf"         "data.frame"
-Rows: 241
-Columns: 64
-$ scalerank  &lt;int&gt; 3, 1, 1, 1, 1, 3, 3, 1, 1, 1, 3, 1, 5, 3, 1, 1, 1, 1, 1, 1,…
+Rows: 242
+Columns: 169
 $ featurecla &lt;chr&gt; "Admin-0 country", "Admin-0 country", "Admin-0 country", "A…
-$ labelrank  &lt;dbl&gt; 5, 3, 3, 6, 6, 6, 6, 4, 2, 6, 4, 4, 5, 6, 6, 2, 4, 5, 6, 2,…
-$ sovereignt &lt;chr&gt; "Netherlands", "Afghanistan", "Angola", "United Kingdom", "…
-$ sov_a3     &lt;chr&gt; "NL1", "AFG", "AGO", "GB1", "ALB", "FI1", "AND", "ARE", "AR…
-$ adm0_dif   &lt;dbl&gt; 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 0,…
-$ level      &lt;dbl&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
-$ type       &lt;chr&gt; "Country", "Sovereign country", "Sovereign country", "Depen…
-$ admin      &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ adm0_a3    &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
-$ geou_dif   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-$ geounit    &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ gu_a3      &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
-$ su_dif     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-$ subunit    &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ su_a3      &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
-$ brk_diff   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
-$ name       &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ name_long  &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ brk_a3     &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
-$ brk_name   &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
+$ scalerank  &lt;int&gt; 1, 1, 1, 3, 5, 6, 1, 1, 1, 3, 5, 3, 3, 3, 3, 1, 5, 3, 3, 3,…
+$ labelrank  &lt;int&gt; 3, 3, 3, 2, 3, 6, 4, 3, 4, 6, 6, 6, 6, 6, 4, 5, 2, 4, 5, 6,…
+$ sovereignt &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ sov_a3     &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_dif   &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1,…
+$ level      &lt;int&gt; 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2,…
+$ type       &lt;chr&gt; "Sovereign country", "Sovereign country", "Sovereign countr…
+$ tlc        &lt;chr&gt; "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1", "1",…
+$ admin      &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ adm0_a3    &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ geou_dif   &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ geounit    &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ gu_a3      &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ su_dif     &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ subunit    &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ su_a3      &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ brk_diff   &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0,…
+$ name       &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ name_long  &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ brk_a3     &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ brk_name   &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
 $ brk_group  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ abbrev     &lt;chr&gt; "Aruba", "Afg.", "Ang.", "Ang.", "Alb.", "Aland", "And.", "…
-$ postal     &lt;chr&gt; "AW", "AF", "AO", "AI", "AL", "AI", "AND", "AE", "AR", "ARM…
-$ formal_en  &lt;chr&gt; "Aruba", "Islamic State of Afghanistan", "People's Republic…
-$ formal_fr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ note_adm0  &lt;chr&gt; "Neth.", NA, NA, "U.K.", NA, "Fin.", NA, NA, NA, NA, "U.S.A…
-$ note_brk   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "Multiple claim…
-$ name_sort  &lt;chr&gt; "Aruba", "Afghanistan", "Angola", "Anguilla", "Albania", "A…
-$ name_alt   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ mapcolor7  &lt;dbl&gt; 4, 5, 3, 6, 1, 4, 1, 2, 3, 3, 4, 4, 1, 7, 2, 1, 3, 1, 2, 3,…
-$ mapcolor8  &lt;dbl&gt; 2, 6, 2, 6, 4, 1, 4, 1, 1, 1, 5, 5, 2, 5, 2, 2, 1, 6, 2, 2,…
-$ mapcolor9  &lt;dbl&gt; 2, 8, 6, 6, 1, 4, 1, 3, 3, 2, 1, 1, 2, 9, 5, 2, 3, 5, 5, 1,…
-$ mapcolor13 &lt;dbl&gt; 9, 7, 1, 3, 6, 6, 8, 3, 13, 10, 1, NA, 7, 11, 5, 7, 4, 8, 8…
-$ pop_est    &lt;dbl&gt; 103065, 28400000, 12799293, 14436, 3639453, 27153, 83888, 4…
-$ gdp_md_est &lt;dbl&gt; 2258.0, 22270.0, 110300.0, 108.9, 21810.0, 1563.0, 3660.0, …
-$ pop_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ lastcensus &lt;dbl&gt; 2010, 1979, 1970, NA, 2001, NA, 1989, 2010, 2010, 2001, 201…
-$ gdp_year   &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ economy    &lt;chr&gt; "6. Developing region", "7. Least developed region", "7. Le…
-$ income_grp &lt;chr&gt; "2. High income: nonOECD", "5. Low income", "3. Upper middl…
-$ wikipedia  &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ fips_10    &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ iso_a2     &lt;chr&gt; "AW", "AF", "AO", "AI", "AL", "AX", "AD", "AE", "AR", "AM",…
-$ iso_a3     &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALA", "AND", "ARE", "AR…
-$ iso_n3     &lt;chr&gt; "533", "004", "024", "660", "008", "248", "020", "784", "03…
-$ un_a3      &lt;chr&gt; "533", "004", "024", "660", "008", "248", "020", "784", "03…
-$ wb_a2      &lt;chr&gt; "AW", "AF", "AO", NA, "AL", NA, "AD", "AE", "AR", "AM", "AS…
-$ wb_a3      &lt;chr&gt; "ABW", "AFG", "AGO", NA, "ALB", NA, "ADO", "ARE", "ARG", "A…
-$ woe_id     &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ adm0_a3_is &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALA", "AND", "ARE", "AR…
-$ adm0_a3_us &lt;chr&gt; "ABW", "AFG", "AGO", "AIA", "ALB", "ALD", "AND", "ARE", "AR…
-$ adm0_a3_un &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ adm0_a3_wb &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
-$ continent  &lt;chr&gt; "North America", "Asia", "Africa", "North America", "Europe…
-$ region_un  &lt;chr&gt; "Americas", "Asia", "Africa", "Americas", "Europe", "Europe…
-$ subregion  &lt;chr&gt; "Caribbean", "Southern Asia", "Middle Africa", "Caribbean",…
-$ region_wb  &lt;chr&gt; "Latin America &amp; Caribbean", "South Asia", "Sub-Saharan Afr…
-$ name_len   &lt;dbl&gt; 5, 11, 6, 8, 7, 5, 7, 20, 9, 7, 14, 10, 23, 22, 17, 9, 7, 1…
-$ long_len   &lt;dbl&gt; 5, 11, 6, 8, 7, 13, 7, 20, 9, 7, 14, 10, 27, 35, 19, 9, 7, …
-$ abbrev_len &lt;dbl&gt; 5, 4, 4, 4, 4, 5, 4, 6, 4, 4, 9, 4, 7, 10, 6, 4, 5, 4, 4, 5…
-$ tiny       &lt;dbl&gt; 4, NA, NA, NA, NA, 5, 5, NA, NA, NA, 3, NA, NA, 2, 4, NA, N…
-$ homepart   &lt;dbl&gt; NA, 1, 1, NA, 1, NA, 1, 1, 1, 1, NA, 1, NA, NA, 1, 1, 1, 1,…
-$ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((-69.89912 1..., MULTIPOLYGON (…
+$ abbrev     &lt;chr&gt; "Zimb.", "Zambia", "Yem.", "Viet.", "Ven.", "Vat.", "Van.",…
+$ postal     &lt;chr&gt; "ZW", "ZM", "YE", "VN", "VE", "V", "VU", "UZ", "UY", "FSM",…
+$ formal_en  &lt;chr&gt; "Republic of Zimbabwe", "Republic of Zambia", "Republic of …
+$ formal_fr  &lt;chr&gt; NA, NA, NA, NA, "República Bolivariana de Venezuela", NA, N…
+$ name_ciawf &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Hol…
+$ note_adm0  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, "U.S.A.", "U.S.…
+$ note_brk   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ name_sort  &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen, Rep.", "Vietnam", "Venezuela,…
+$ name_alt   &lt;chr&gt; NA, NA, NA, NA, NA, "Holy See", NA, NA, NA, NA, NA, NA, NA,…
+$ mapcolor7  &lt;int&gt; 1, 5, 5, 5, 1, 1, 6, 2, 1, 5, 2, 4, 4, 4, 4, 4, 4, 6, 6, 6,…
+$ mapcolor8  &lt;int&gt; 5, 8, 3, 6, 3, 3, 3, 3, 2, 2, 5, 5, 5, 5, 5, 5, 5, 6, 6, 6,…
+$ mapcolor9  &lt;int&gt; 3, 5, 3, 5, 1, 4, 7, 5, 2, 4, 5, 1, 1, 1, 1, 1, 1, 6, 6, 6,…
+$ mapcolor13 &lt;int&gt; 9, 13, 11, 4, 4, 2, 3, 4, 10, 13, 3, 1, 1, 1, 1, 1, 1, 3, 3…
+$ pop_est    &lt;dbl&gt; 14645468, 17861030, 29161922, 96462106, 28515829, 825, 2998…
+$ pop_rank   &lt;int&gt; 14, 14, 15, 16, 15, 2, 10, 15, 12, 9, 8, 8, 9, 9, 8, 12, 17…
+$ pop_year   &lt;int&gt; 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019, 2019,…
+$ gdp_md     &lt;int&gt; 21440, 23309, 22581, 261921, 482359, -99, 934, 57921, 56045…
+$ gdp_year   &lt;int&gt; 2019, 2019, 2019, 2019, 2014, 2019, 2019, 2019, 2019, 2018,…
+$ economy    &lt;chr&gt; "5. Emerging region: G20", "7. Least developed region", "7.…
+$ income_grp &lt;chr&gt; "5. Low income", "4. Lower middle income", "4. Lower middle…
+$ fips_10    &lt;chr&gt; "ZI", "ZA", "YM", "VM", "VE", "VT", "NH", "UZ", "UY", "FM",…
+$ iso_a2     &lt;chr&gt; "ZW", "ZM", "YE", "VN", "VE", "VA", "VU", "UZ", "UY", "FM",…
+$ iso_a2_eh  &lt;chr&gt; "ZW", "ZM", "YE", "VN", "VE", "VA", "VU", "UZ", "UY", "FM",…
+$ iso_a3     &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ iso_a3_eh  &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ iso_n3     &lt;chr&gt; "716", "894", "887", "704", "862", "336", "548", "860", "85…
+$ iso_n3_eh  &lt;chr&gt; "716", "894", "887", "704", "862", "336", "548", "860", "85…
+$ un_a3      &lt;chr&gt; "716", "894", "887", "704", "862", "336", "548", "860", "85…
+$ wb_a2      &lt;chr&gt; "ZW", "ZM", "RY", "VN", "VE", "-99", "VU", "UZ", "UY", "FM"…
+$ wb_a3      &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "-99", "VUT", "UZB", "UR…
+$ woe_id     &lt;int&gt; 23425004, 23425003, 23425002, 23424984, 23424982, 23424986,…
+$ woe_id_eh  &lt;int&gt; 23425004, 23425003, 23425002, 23424984, 23424982, 23424986,…
+$ woe_note   &lt;chr&gt; "Exact WOE match as country", "Exact WOE match as country",…
+$ adm0_iso   &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_diff  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ adm0_tlc   &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_us &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_fr &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ru &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_es &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_cn &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_tw &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_in &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_np &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_pk &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_de &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_gb &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_br &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_il &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ps &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_sa &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_eg &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ma &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_pt &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ar &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_jp &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ko &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_vn &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_tr &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_id &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_pl &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_gr &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_it &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_nl &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_se &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_bd &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_ua &lt;chr&gt; "ZWE", "ZMB", "YEM", "VNM", "VEN", "VAT", "VUT", "UZB", "UR…
+$ adm0_a3_un &lt;int&gt; -99, -99, -99, -99, -99, -99, -99, -99, -99, -99, -99, -99,…
+$ adm0_a3_wb &lt;int&gt; -99, -99, -99, -99, -99, -99, -99, -99, -99, -99, -99, -99,…
+$ continent  &lt;chr&gt; "Africa", "Africa", "Asia", "Asia", "South America", "Europ…
+$ region_un  &lt;chr&gt; "Africa", "Africa", "Asia", "Asia", "Americas", "Europe", "…
+$ subregion  &lt;chr&gt; "Eastern Africa", "Eastern Africa", "Western Asia", "South-…
+$ region_wb  &lt;chr&gt; "Sub-Saharan Africa", "Sub-Saharan Africa", "Middle East &amp; …
+$ name_len   &lt;int&gt; 8, 6, 5, 7, 9, 7, 7, 10, 7, 10, 12, 14, 15, 4, 14, 11, 24, …
+$ long_len   &lt;int&gt; 8, 6, 5, 7, 9, 7, 7, 10, 7, 30, 16, 24, 28, 4, 14, 11, 13, …
+$ abbrev_len &lt;int&gt; 5, 6, 4, 5, 4, 4, 4, 4, 4, 6, 6, 6, 11, 4, 9, 4, 6, 10, 6, …
+$ tiny       &lt;int&gt; -99, -99, -99, 2, -99, 4, 2, 5, -99, -99, 2, 3, 3, 2, 3, -9…
+$ homepart   &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -99, -99, -99, -99, -99, 1…
+$ min_zoom   &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+$ min_label  &lt;dbl&gt; 2.5, 3.0, 3.0, 2.0, 2.5, 5.0, 4.0, 3.0, 3.0, 5.0, 5.0, 5.0,…
+$ max_label  &lt;dbl&gt; 8.0, 8.0, 8.0, 7.0, 7.5, 10.0, 9.0, 8.0, 8.0, 10.0, 10.0, 1…
+$ label_x    &lt;dbl&gt; 29.92544, 26.39530, 45.87438, 105.38729, -64.59938, 12.4534…
+$ label_y    &lt;dbl&gt; -18.911640, -14.660804, 15.328226, 21.715416, 7.182476, 41.…
+$ ne_id      &lt;dbl&gt; 1159321441, 1159321439, 1159321425, 1159321417, 1159321411,…
+$ wikidataid &lt;chr&gt; "Q954", "Q953", "Q805", "Q881", "Q717", "Q237", "Q686", "Q2…
+$ name_ar    &lt;chr&gt; "زيمبابوي", "زامبيا", "اليمن", "فيتنام", "فنزويلا", "الفاتي…
+$ name_bn    &lt;chr&gt; "জিম্বাবুয়ে", "জাম্বিয়া", "ইয়েমেন", "ভিয়েতনাম", "ভেনেজুয়েলা", "…
+$ name_de    &lt;chr&gt; "Simbabwe", "Sambia", "Jemen", "Vietnam", "Venezuela", "Vat…
+$ name_en    &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Vat…
+$ name_es    &lt;chr&gt; "Zimbabue", "Zambia", "Yemen", "Vietnam", "Venezuela", "Ciu…
+$ name_fa    &lt;chr&gt; "زیمبابوه", "زامبیا", "یمن", "ویتنام", "ونزوئلا", "واتیکان"…
+$ name_fr    &lt;chr&gt; "Zimbabwe", "Zambie", "Yémen", "Viêt Nam", "Venezuela", "Ci…
+$ name_el    &lt;chr&gt; "Ζιμπάμπουε", "Ζάμπια", "Υεμένη", "Βιετνάμ", "Βενεζουέλα", …
+$ name_he    &lt;chr&gt; "זימבבואה", "זמביה", "תימן", "וייטנאם", "ונצואלה", "קריית ה…
+$ name_hi    &lt;chr&gt; "ज़िम्बाब्वे", "ज़ाम्बिया", "यमन", "वियतनाम", "वेनेज़ुएला", "वैटिकन नग…
+$ name_hu    &lt;chr&gt; "Zimbabwe", "Zambia", "Jemen", "Vietnám", "Venezuela", "Vat…
+$ name_id    &lt;chr&gt; "Zimbabwe", "Zambia", "Yaman", "Vietnam", "Venezuela", "Vat…
+$ name_it    &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Vietnam", "Venezuela", "Cit…
+$ name_ja    &lt;chr&gt; "ジンバブエ", "ザンビア", "イエメン", "ベトナム", "ベネズエ…
+$ name_ko    &lt;chr&gt; "짐바브웨", "잠비아", "예멘", "베트남", "베네수엘라", "바티…
+$ name_nl    &lt;chr&gt; "Zimbabwe", "Zambia", "Jemen", "Vietnam", "Venezuela", "Vat…
+$ name_pl    &lt;chr&gt; "Zimbabwe", "Zambia", "Jemen", "Wietnam", "Wenezuela", "Wat…
+$ name_pt    &lt;chr&gt; "Zimbábue", "Zâmbia", "Iémen", "Vietname", "Venezuela", "Va…
+$ name_ru    &lt;chr&gt; "Зимбабве", "Замбия", "Йемен", "Вьетнам", "Венесуэла", "Ват…
+$ name_sv    &lt;chr&gt; "Zimbabwe", "Zambia", "Jemen", "Vietnam", "Venezuela", "Vat…
+$ name_tr    &lt;chr&gt; "Zimbabve", "Zambiya", "Yemen", "Vietnam", "Venezuela", "Va…
+$ name_uk    &lt;chr&gt; "Зімбабве", "Замбія", "Ємен", "В'єтнам", "Венесуела", "Вати…
+$ name_ur    &lt;chr&gt; "زمبابوے", "زیمبیا", "یمن", "ویتنام", "وینیزویلا", "ویٹیکن …
+$ name_vi    &lt;chr&gt; "Zimbabwe", "Zambia", "Yemen", "Việt Nam", "Venezuela", "Th…
+$ name_zh    &lt;chr&gt; "津巴布韦", "赞比亚", "也门", "越南", "委内瑞拉", "梵蒂冈",…
+$ name_zht   &lt;chr&gt; "辛巴威", "尚比亞", "葉門", "越南", "委內瑞拉", "梵蒂岡", "…
+$ fclass_iso &lt;chr&gt; "Admin-0 country", "Admin-0 country", "Admin-0 country", "A…
+$ tlc_diff   &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_tlc &lt;chr&gt; "Admin-0 country", "Admin-0 country", "Admin-0 country", "A…
+$ fclass_us  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_fr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ru  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_es  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_cn  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_tw  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_in  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_np  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_pk  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_de  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_gb  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_br  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_il  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ps  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_sa  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_eg  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ma  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_pt  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ar  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_jp  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ko  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_vn  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_tr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_id  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_pl  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_gr  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_it  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_nl  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_se  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_bd  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ fclass_ua  &lt;chr&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ geometry   &lt;MULTIPOLYGON [°]&gt; MULTIPOLYGON (((31.28789 -2..., MULTIPOLYGON (…
 ```
 
 ---
@@ -1389,8 +1679,8 @@ world$geometry[1]
 Geometry set for 1 feature 
 Geometry type: MULTIPOLYGON
 Dimension:     XY
-Bounding box:  xmin: -70.06611 ymin: 12.423 xmax: -69.8957 ymax: 12.61411
-Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
+Bounding box:  xmin: 25.22402 ymin: -22.40205 xmax: 33.00674 ymax: -15.64307
+Geodetic CRS:  WGS 84
 ```
 
 ---
@@ -1402,7 +1692,7 @@ Geodetic CRS:  +proj=longlat +datum=WGS84 +no_defs +ellps=WGS84 +towgs84=0,0,0
 world %&gt;%  filter(brk_name == "Germany") %&gt;% ggplot() + geom_sf()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-85-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1417,7 +1707,7 @@ lorsque l'on renseigne un entier, cela fait référence à la nomenclature EPSG 
 world %&gt;%  filter(brk_name == "Germany") %&gt;% st_transform( crs = 32631) %&gt;% ggplot() + geom_sf()
 ```
 
-![](VizuXa_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-86-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -1438,7 +1728,7 @@ rm_shape %&gt;% ggplot(aes(fill = nom)) +
 
 ## Environs de Rennes
 
-![](VizuXa_files/figure-html/unnamed-chunk-77-1.png)&lt;!-- --&gt;
+![](VizuXa_files/figure-html/unnamed-chunk-88-1.png)&lt;!-- --&gt;
 
 ```
 Reading layer `limites-communales-referentielles-de-rennes-metropole-polygones' from data source `/home/marchand/Nextcloud2/AgroCampus/M2Data/rennes-metropole' 
@@ -1470,7 +1760,7 @@ left_join(rm_shape, rm15_24) %&gt;% ggplot(aes(fill = population)) + geom_sf() +
 ---
 
 ##  Représentation
-&lt;img src="VizuXa_files/figure-html/unnamed-chunk-79-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="VizuXa_files/figure-html/unnamed-chunk-90-1.png" style="display: block; margin: auto;" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
